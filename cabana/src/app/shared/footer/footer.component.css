@@ -1,14 +1,16 @@
+
 footer {
+    margin: 0;
+    width: 100%;
     flex-direction: row;
     background-color: var(--primary_1_100);
     color: var(--primary_2_100);
     font: var(--body-regular-16px);
     padding: 30px 60px;
     display: flex;
-    position: fixed;
     bottom: 0;
     justify-content: space-between;
-    gap: max(20px);
+    gap: max(30px);
     flex-wrap: wrap;
 }
 .container{

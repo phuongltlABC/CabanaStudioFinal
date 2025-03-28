@@ -1,0 +1,192 @@
+
+/* Header chính */
+.group-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: var(--primary_2_100);
+}
+.header-logo {
+    width: 120px;
+    height: auto;
+}
+/* Logo */
+.logo {
+    width: 100%;
+    height: auto;
+}
+/* Nhóm icon + nút menu */
+.group-navigation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+/*đống navigation*/
+.nav-links{
+    display: flex;
+}
+
+/* Nút icon */
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* Điều chỉnh icon */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.nav-icons i {
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+.nav-icons i:hover {
+    color: var(--accent-1-100);
+}
+
+/* Nút menu ☰ */
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.03s ease-in-out;
+    display: none;
+    align-items: center;
+}
+
+/* Hiệu ứng hover */
+.menu-icon:hover,
+.btn-navigation:hover img {
+    filter: brightness(0.7);
+}
+
+/* Link menu */
+.nav-item, .menu-toggler{ 
+    a{
+    text-decoration: none;
+    color: #52667D;
+    margin: 0 10px;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+}
+.nav-item, .menu-toggler{ 
+    a:hover {
+    color:#1C2E4A;
+    font-weight:  bolder;
+    transition: color 0.3s ease-in-out;
+}} 
+
+
+/* Flex container for menu columns */
+.menu-container {
+    display: flex;
+    gap: 20px; /* Space between columns */
+    padding: 10px 20px;
+}
+
+/* Each menu column */
+.menu-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for section titles ("By Type" and "By Room") */
+.menu-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1C2E4A;
+    margin-bottom: 10px;
+}
+
+/* Menu items spacing */
+.menu-column a{
+    font-size: 12px;
+    text-decoration: none;
+    color: #52667D;
+    width: 100%;
+    text-align: left;
+    padding: 5px 0;
+}
+
+
+.menu-column a:hover{
+    font-size: 12px;
+    font-weight: bold;
+    color: #52667D;
+    width: 100%;
+    text-align: left;
+    padding: 5px 0;
+}
+
+
+/* Mobile, Ipad */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #FBEEE6;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1000;
+        margin: 0;
+    }
+
+    .group-header {
+        position: relative;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-item, .menu-toggler{
+        padding: 3px;
+        display: block;
+        width: 100%;
+        a {
+            font-size: 14px;
+            color: #1C2E4A;
+        }
+    }
+    .nav-item:hover, .menu-toggler:hover{
+        background-color: #1C2E4A;
+        a {color: #FBEEE6;}
+    }
+    .menu{
+        margin: 0;
+        display: block;
+        width: 100%;
+        display: block;
+    }
+    .menu-big-category,.menu-small-category:hover{
+        background-color: #1c2e4a99;
+        a {color: #FBEEE6;}
+    }
+    .menu-big-category{
+        a{font-size: 13px;
+            text-decoration: none;
+            color: #4b5c70;
+            margin: 0 10px;
+            transition: color 0.3s;}
+    }
+    .menu-small-category{
+        a{font-size: 12px;
+            text-decoration: none;
+            color: #52667D;
+            margin: 0 8px;
+            transition: color 0.3s;
+        }
+    }
+    /* Hiển thị nút menu ☰ */
+    .menu-icon {
+        display: flex;
+        color: #1c2e4ac5;
+    }
+}

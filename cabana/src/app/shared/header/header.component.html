@@ -1,1 +1,63 @@
-<p>header works!</p>
+<div class="group-header">
+    <div class="header-logo">
+        <a routerLink="/"><img class="logo" src="assets\image\logo\logo-light_1.jpg" alt="Logo Header"></a>
+    </div>
+<!-- Menu chính -->
+<nav class="nav-links" [ngClass]="{'active': isMenuOpen}">
+    <div class="nav-item"><a routerLink="/">Home</a></div>
+    <div class="menu-toggler">
+        <button mat-button [matMenuTriggerFor]="product">
+            <a routerLink="product">Product</a>
+        </button>
+        <mat-menu #product="matMenu" class="custom-menu">
+            <div class="menu-container">
+              <!-- By Type Section -->
+              <div class="menu-column">
+                <div class="menu-title">By Type</div>
+                <button mat-menu-item><a routerLink="product">Chair & Sofa</a></button>
+                <button mat-menu-item><a routerLink="product">Desk & table</a></button>
+                <button mat-menu-item><a routerLink="product">Bedding & frame</a></button>
+                <button mat-menu-item><a routerLink="product">Storage & shelf</a></button>
+                <button mat-menu-item><a routerLink="product">Rug & curtain</a></button>
+                <button mat-menu-item><a routerLink="product">Vase & plant</a></button>
+                <button mat-menu-item><a routerLink="product">Lighting</a></button>
+                <button mat-menu-item><a routerLink="product">Decoration</a></button>
+              </div>
+              <!-- By Room Section -->
+              <div class="menu-column">
+                <div class="menu-title">By Room</div>
+                <button mat-menu-item><a routerLink="product">Living Room</a></button>
+                <button mat-menu-item><a routerLink="product">Kitchen & dining</a></button>
+                <button mat-menu-item><a routerLink="product">Bedroom</a></button>
+                <button mat-menu-item><a routerLink="product">Bathroom</a></button>
+                <button mat-menu-item><a routerLink="product">Home Office</a></button>
+              </div>
+            </div>
+          </mat-menu>
+    </div>
+    <div class="nav-item"><a routerLink="promotion">Promotion</a></div>
+    <div class="nav-item"><a routerLink="about">About Us</a></div>
+    <div class="nav-item"><a routerLink="contact">Contact</a></div>
+    <div class="nav-item"><a routerLink="blog">Blog</a></div>
+</nav>
+
+<!-- Nhóm icon + nút menu -->
+<div class="group-navigation">
+    <button mat-button class="btn-navigation"><img src="assets/icon/search_icon.png" alt="Search"></button>
+    <button mat-button class="btn-navigation"><img src="assets/icon/cart_icon.png" alt="Cart"></button>
+    <button mat-button class="btn-navigation" [matMenuTriggerFor]="profile"><img src="assets/icon/human_icon.png" alt="Profile">
+        <i class="material-icons">arrow_drop_down</i>
+    </button>
+    <mat-menu #profile>
+        <button mat-menu-item>Sign Up</button>
+        <button mat-menu-item>Sign in</button>
+        <button mat-menu-item>User Profile</button>
+        <button mat-menu-item>Wishlist</button>
+        <button mat-menu-item>My Cart</button>
+        <button mat-menu-item>My voucher</button>
+        <button mat-menu-item>Orders</button>
+        <button mat-menu-item>Settings</button>
+        <button mat-menu-item>Sign out</button>
+    </mat-menu>
+    <div class="menu-icon" (click)="toggleMenu()">☰</div>
+</div>
