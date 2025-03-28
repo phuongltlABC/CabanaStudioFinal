@@ -1,0 +1,145 @@
+footer {
+    flex-direction: row;
+    background-color: var(--primary_1_100);
+    color: var(--primary_2_100);
+    font: var(--body-regular-16px);
+    padding: 30px 60px;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    gap:max(20px);
+    flex-wrap: wrap;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+}
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo img {
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.link {
+    display: flex;
+    gap: 15px;
+}
+
+.link .icon {
+    width: 30px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.link .icon:hover {
+    transform: scale(1.1);
+}
+
+.footer-component {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 250px;
+}
+
+.footer-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+.contact-info:hover{
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.contact-info img.icon {
+    width: 16px;
+    height: 16px;
+}
+
+.contact-info a {
+    color: var(--primary_2_100);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+.footer-check {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    border-top: 1px var(--primary_2_100);
+    padding-top: 10px;
+}
+@media (max-width: 768px) {
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 180px;
+}
+.contact-info{
+    font-size:10px;
+
+}
+/*logo*/
+.logo {
+    flex: 0 0 auto;
+    text-align: center;
+}
+.logo img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+.link .icon {
+    width: 20px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+/*All label*/
+.footer-label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+/*Contact Us*/
+.contact-info img.icon {
+    width: 10px;
+    height: 10px;
+}
+.footer-component {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-width: 250px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+.contact-info a {
+    color: var(--primary_2_100);
+    text-decoration: none;
+    font-size: 10px;
+}
+.footer-check{
+    display: none;
+}
+}

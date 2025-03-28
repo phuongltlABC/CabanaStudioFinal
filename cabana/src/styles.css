@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Lexend' }
+:root {
+    /* Primary Colors */
+    --primary_1_100: #52677D;
+    --primary_1_80: rgba(82, 103, 125, 0.8);
+    --primary_1_60: rgba(82, 103, 125, 0.6);
+    --primary_1_40: rgba(82, 103, 125, 0.4);
+    --primary_1_20: rgba(82, 103, 125, 0.2);
+    --primary_1_10: rgba(82, 103, 125, 0.1);
+  
+    --primary_2_100: #FBEEE6;
+    --primary_2_80: rgba(251, 238, 230, 0.8);
+    --primary_2_60: rgba(251, 238, 230, 0.6);
+    --primary_2_40: rgba(251, 238, 230, 0.4);
+    --primary_2_20: rgba(251, 238, 230, 0.2);
+    --primary_2_10: rgba(251, 238, 230, 0.1);
+  
+    /* Accent Colors */
+    --accent_1_100: #1C2E4A;
+    --accent_1_80: rgba(28, 46, 74, 0.8);
+    --accent_1_60: rgba(28, 46, 74, 0.6);
+    --accent_1_40: rgba(28, 46, 74, 0.4);
+    --accent_1_20: rgba(28, 46, 74, 0.2);
+    --accent_1_10: rgba(28, 46, 74, 0.1);
+  
+    --accent_2_100: #BDC4D4;
+    --accent_2_80: rgba(189, 196, 212, 0.8);
+    --accent_2_60: rgba(189, 196, 212, 0.6);
+    --accent_2_40: rgba(189, 196, 212, 0.4);
+    --accent_2_20: rgba(189, 196, 212, 0.2);
+    --accent_2_10: rgba(189, 196, 212, 0.1);
+  
+    /* Neutral Colors */
+    --neutral_1_100: #000000;
+    --neutral_1_80: rgba(0, 0, 0, 0.8);
+    --neutral_1_60: rgba(0, 0, 0, 0.6);
+    --neutral_1_40: rgba(0, 0, 0, 0.4);
+    --neutral_1_20: rgba(0, 0, 0, 0.2);
+    --neutral_1_10: rgba(0, 0, 0, 0.1);
+
+      /* Heading Fonts */
+  --h1-bold-40px: bold 40px 'Lexend', sans-serif;
+  --h2-semibold-32px: 600 32px 'Lexend', sans-serif;
+  --h3-semibold-24px: 600 24px 'Lexend', sans-serif;
+  
+  /* Body & Other Text Styles */
+  --body-regular-16px: 400 16px 'Lexend', sans-serif;
+  --product-price-bold-20px: bold 20px 'Lexend', sans-serif;
+  --button-semibold-18px: 600 18px 'Lexend', sans-serif;
+  --caption-regular-14px: 400 14px 'Lexend', sans-serif;
+  }
+  
