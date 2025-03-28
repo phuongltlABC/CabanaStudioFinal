@@ -1,0 +1,31 @@
+.policies-container {
+    background-color: #f9e8dc !important; 
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .policies-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .policy-accordion {
+    mat-expansion-panel {
+      margin-bottom: 10px;
+    }
+  
+    mat-expansion-panel-header {
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px;
+    }
+  }
+  
+  .contact-text {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+  }
+  

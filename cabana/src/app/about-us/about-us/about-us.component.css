@@ -1,12 +1,14 @@
-:root{
-    background-color: var(--primary_2_100);
-}
 .hero-section {
-    padding: 4rem 0;
+    background-color: var(--primary_2_100);
+    height: auto;
+    width: 100%;
 }
-
+.container{
+    width: 100%;
+}
 .value-card {
-    border-left: 3px solid var(--accent_1_100);
+    height: auto;
+    width: 100%;
     padding: 1.5rem;
     margin: 1.5rem 0;
     transition: transform 0.3s ease;
@@ -26,6 +28,7 @@
 .img-wrapper {
     border-radius: 8px;
     overflow: hidden;
+    width: 100%;
 }
 
 .lead-quote {

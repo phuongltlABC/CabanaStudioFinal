@@ -1,0 +1,34 @@
+
+:host {
+    display: block;
+        background-color: var(--primary_2_100);
+        margin: none;
+        padding: none;
+    }
+    .contact-container {
+        background: var(--primary_2_100);
+        border-radius: 10px;
+        padding: 20px;
+    }
+    .contact-header {
+        background-color: #52677D;
+        color: var(--primary_2_100);
+        padding: 15px;
+        border-radius: 10px 10px 0 0;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+    .contact-section {
+        padding: 20px;
+    }
+    .form-control {
+        border-radius: 5px;
+        background-color: var(--primary_2_100);
+    }
+    .btn-primary {
+        background-color: #1C2E4A;
+        border: none;
+    }
+    .btn-primary:hover {
+        background-color: #52677D;
+    }

@@ -20,11 +20,14 @@ import { MyOrderComponent } from './my-order/my-order/my-order.component';
 import { OrderDetailComponent } from './my-order/order-detail/order-detail.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { PlaceOrderComponent } from './my-card/place-order/place-order.component';
+import { BlogMainComponent } from './blog/blog-main/blog-main.component';
 
 export const routes: Routes = [
+  { path: '', component:HomepageComponent},
   { path: 'about', component:AboutUsComponent },
+  { path: 'about/product', redirectTo: '/product', pathMatch: 'full' },
   { path: 'contact', component:ContactComponent },
-  { path: 'home', component:HomepageComponent },
+  { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'promotion', component:PromotionComponent,
     children:[
       { path: 'special-offer', component:PromotionSpecialOffersComponent },
@@ -44,11 +47,9 @@ export const routes: Routes = [
       { path: 'verify', component:VerifyCodeComponent },
     ]
    },
-  { path: 'blog', component:BlogComponent,
-    children:[
-      { path: 'blog-content', component:BlogContentComponent},
-    ]
-  },
+  { path: 'blog', component:BlogComponent},
+  { path: 'blog-content', component:BlogContentComponent},
+  { path: 'blog/blog-content', redirectTo: 'blog-content', pathMatch: 'full' },
   { path: 'profile', component:MyProfileComponent,
     children:[
       { path: 'edit-profile', component:EditProfileComponent },

@@ -1,0 +1,23 @@
+:host{width: 100%;
+    display: block;
+    margin: 0;
+position: relative;}
+.post-card {
+    transition: filter 0.3s ease-in-out;
+}
+.post-card:hover {
+    filter: brightness(70%);
+}
+.post-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+.post-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+.post-meta {
+    font-size: 0.9rem;
+    color: gray;
+}
