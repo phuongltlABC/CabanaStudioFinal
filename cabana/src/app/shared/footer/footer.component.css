@@ -6,8 +6,9 @@ footer {
     padding: 30px 60px;
     display: flex;
     position: fixed;
+    bottom: 0;
     justify-content: space-between;
-    gap:max(20px);
+    gap: max(20px);
     flex-wrap: wrap;
 }
 .container{
@@ -21,7 +22,8 @@ footer {
 }
 
 .logo img {
-    width: 120px;
+    width: 200px;
+    height: auto;
     margin-bottom: 10px;
 }
 
@@ -74,7 +76,9 @@ footer {
     text-decoration: none;
     font-size: 14px;
 }
-
+.contact-info a:hover {
+    font-weight: bold;
+}
 
 .footer-check {
     display: block;
@@ -88,58 +92,49 @@ footer {
 @media (max-width: 768px) {
 
 footer{
+    padding: 10px 20px 10px 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    height: 180px;
-}
-.contact-info{
-    font-size:10px;
-
+    height: fit-content;
+    width: 100%;
 }
 /*logo*/
+footer:first-child{
+    display: block;
+    height: fit-content;
+    width: 100%;
+}
 .logo {
     flex: 0 0 auto;
-    text-align: center;
-}
+    text-align: center;}
 .logo img {
-    width: 100px;
-    margin-bottom: 10px;
-}
+    margin-bottom: 3px;}
 .link .icon {
-    width: 20px;
+    margin-top: 5px;
+    width: 30px;
     height: auto;
     transition: transform 0.3s ease;
 }
-/*All label*/
+/*footer-component*/
+.footer-component {
+    flex: 0 0 auto;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
 .footer-label {
-    font-size: 14px;
-    font-weight: bold;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    font: var(--h3-semibold-24px);
+    font-size: 13px;
+    margin: 0;
 }
 /*Contact Us*/
 .contact-info img.icon {
     width: 10px;
     height: 10px;
 }
-.footer-component {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    max-width: 250px;
-}
-.container{
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-}
-.contact-info a {
+.contact-info a, .contact-info {
     color: var(--primary_2_100);
     text-decoration: none;
-    font-size: 10px;
-}
-.footer-check{
-    display: none;
-}
-}
+    font: var(--body-regular-16px);
+    font-size: 12px;
+}}
