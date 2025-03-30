@@ -63,7 +63,7 @@ export const routes: Routes = [
    },
   { path: 'my-cart', component:AboutUsComponent,
     children:[
-      { path: 'place-order', component:PlaceOrderComponent },
+      { path: 'place-order', component:PlaceOrderComponent},
     ]
    },
 ];

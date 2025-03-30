@@ -6,7 +6,7 @@ position: relative;}
     transition: filter 0.3s ease-in-out;
 }
 .post-card:hover {
-    filter: brightness(70%);
+    filter: brightness(80%);
 }
 .post-card img {
     width: 100%;
@@ -19,5 +19,5 @@ position: relative;}
 }
 .post-meta {
     font-size: 0.9rem;
-    color: gray;
+    color: var(--accent_1_100);
 }
