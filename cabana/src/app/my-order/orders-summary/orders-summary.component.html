@@ -1,0 +1,40 @@
+<div class="orders-summary-page">
+    <h2>Orders</h2>
+    <div class="toolbar">
+      <input
+        type="text"
+        placeholder="Search by Order ID..."
+        [(ngModel)]="searchText"
+      />
+    </div>
+  
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Status</th>
+          <th>Payment Method</th>
+          <th>Created Date</th>
+          <th>Total Value</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of filteredOrders">
+          <!-- Dùng bracket notation -->
+          <td>{{ order["Order ID"] }}</td>
+          <td>{{ order["Status"] }}</td>
+          <td>{{ order["Payment Method"] }}</td>
+          <td>{{ order["Created Date"] }}</td>
+          <td>{{ order["Total Value"] | currency:'VND' }}</td>
+          <td>
+            <!-- Điều hướng tới trang chi tiết -->
+            <button [routerLink]="['/orders', order['Order ID']]">
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,102 @@
+<div class="order-details-page" *ngIf="order">
+    <!-- Progress Steps -->
+    <div class="progress-section">
+      <div class="progress-group">
+        <h3>In progress</h3>
+        <div class="progress-item">
+          <span class="date">{{ order["Created Date"] | date: 'EEE, MMM d' }}</span>
+          <span class="status">{{ order["Status"] }}</span>
+        </div>
+      </div>
+  
+      <div class="progress-group">
+        <h3>Order Confirmed</h3>
+        <div class="progress-item">
+          <span class="date">{{ order["Payment Date"] | date: 'EEE, MMM d' }}</span>
+          <span class="status">Paid</span>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Items in Order -->
+<div class="items-section">
+    <h3>Items in Order</h3>
+    <div *ngFor="let item of orderItems" class="item">
+      <!-- Hiển thị ảnh -->
+      <div class="product-image">
+        <img 
+          *ngIf="item.productDetails?.images?.length > 0"
+          [src]="item.productDetails.images[0]" 
+          alt="{{ item.productDetails.name }}"
+        />
+        <div *ngIf="!item.productDetails?.images?.length" class="no-image">
+          No Image
+        </div>
+      </div>
+      
+      <!-- Hiển thị tên và thông tin sản phẩm -->
+      <div class="product-info">
+        <h4>{{ item.productDetails?.name || 'Unnamed Product' }}</h4>
+        <p>Color: {{ item.productDetails?.color || 'N/A' }}</p>
+        <p>Quantity: {{ item.quantity }} items</p>
+      </div>
+    </div>
+  </div>
+  
+    <!-- Order Summary -->
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <div class="summary-item">
+        <span>Delivery fee</span>
+        <span>{{ order["Delivery Fee"] | currency:'VND' }}</span>
+      </div>
+      <div class="summary-item">
+        <span>VAT</span>
+        <span>{{ order["VAT"] | currency:'VND' }}</span>
+      </div>
+      <div class="summary-item">
+        <span>Items</span>
+        <span>{{ order["Total Value"] | currency:'VND' }}</span>
+      </div>
+      <div class="summary-item">
+        <span>Freeship</span>
+        <span>-{{ order["Freeship"] | currency:'VND' }}</span>
+      </div>
+      <div class="summary-item">
+        <span>Voucher</span>
+        <span>-{{ order["Voucher Discount"] | currency:'VND' }}</span>
+      </div>
+      <div class="voucher-code">
+        <span>Voucher Code</span>
+        <span>{{ order["Voucher Code"] || 'N/A' }}</span>
+      </div>
+      <div class="total">
+        <span>Total</span>
+        <span>{{ order["Final Total"] | currency:'VND' }}</span>
+      </div>
+    </div>
+  
+    <!-- Delivery & Payment -->
+    <div class="delivery-payment">
+      <div class="delivery-info">
+        <h3>Delivery</h3>
+        <p>{{ order["Shipping Address"] }}</p>
+        <p>{{ order["Phone Number"] }}</p>
+      </div>
+      <div class="payment-info">
+        <h3>Payment</h3>
+        <p>{{ order["Payment Method"] }} ****</p>
+      </div>
+    </div>
+  
+    <!-- Need Help -->
+    <div class="need-help">
+      <h3>Need Help?</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox"> Order Issues ➤️</label>
+        <label><input type="checkbox" checked> Delivery Issue ➤️</label>
+        <label><input type="checkbox" [checked]="order['Return Requested']"> Return ➤️</label>
+      </div>
+    </div>
+  </div>
+  
