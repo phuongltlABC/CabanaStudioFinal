@@ -48,7 +48,7 @@ body { margin: 0; font-family: 'Lexend' }
   
   /* Body & Other Text Styles */
   --body-regular-16px: 400 16px 'Lexend', sans-serif;
-  --product-price-bold-20px: bold 20px 'Lexend', sans-serif;
+  --product-price-18px: 20px 'Lexend', sans-serif;
   --button-semibold-18px: 600 18px 'Lexend', sans-serif;
   --caption-regular-14px: 400 14px 'Lexend', sans-serif;
   }

@@ -1,0 +1,90 @@
+<h2 class="product-title">Our Collection Of Products</h2>
+<div class="row">
+  <div class="col-md-4 mb-4" *ngFor="let product of displayedProducts">
+    <!-- Debug dữ liệu -->
+    <!-- <pre>{{ product | json }}</pre> -->
+
+    <div class="product-card position-relative">
+      <!-- Tag giảm giá (ẩn nếu không có giảm giá) -->
+      <span
+        class="discount"
+        *ngIf="product.discount?.percentage && product.discount.percentage > 0"
+      >
+        -{{ product.discount.percentage }}%
+      </span>
+      <!-- icon yêu thích -->
+      <img
+        src="assets/icon/favorite_icon.png"
+        class="icon favorite-icon"
+        alt="Favorite"
+      />
+      <!-- hình ảnh sản phẩm -->
+      <img
+        [src]="product.images[0]"
+        class="product-img"
+        alt="{{ product.name }}"
+      />
+      <!-- tên sản phẩm -->
+      <h5 class="mt-2 product-name">{{ product.name }}</h5>
+
+      <!-- Giá sản phẩm (giảm giá nếu có) -->
+      <p class="product-price">
+        <ng-container
+          *ngIf="
+            product.discount?.percentage && product.discount.percentage > 0;
+            else normalPrice
+          "
+        >
+          <!-- Giá gốc (strike through) -->
+          <del>
+            {{ product.price | currency : "VND" : "symbol" : "1.0-0" }}
+          </del>
+          <!-- Giá sau khi đã giảm -->
+          <span class="text-danger">
+            {{
+              product.price * (1 - product.discount.percentage / 100)
+                | currency : "VND" : "symbol" : "1.0-0"
+            }}
+          </span>
+        </ng-container>
+
+        <!-- Nếu không có giảm giá, chỉ hiển thị giá gốc -->
+        <ng-template #normalPrice>
+          <span class="text-danger">
+            {{ product.price | currency : "VND" : "symbol" : "1.0-0" }}
+          </span>
+        </ng-template>
+      </p>
+      <!-- Nút View 3D Model và Add to Cart -->
+      <div class="product-actions">
+        <button class="load-more-btn">View 3D Model</button>
+        <button class="load-more-btn">Add To Cart</button>
+      </div>
+      <!-- Icon "Add" căn phải -->
+      <img
+        src="assets/icon/add_icon.png"
+        class="icon add-to-cart"
+        alt="Thêm vào giỏ"
+      />
+    </div>
+  </div>
+   <!-- Phần Load More -->
+  <div class="container mb-5">
+    <div class="load-more-section text-center"
+      *ngIf="displayedProducts.length < products.length">
+      <p>
+        Showing {{ displayedProducts.length }} of {{ products.length }} item(s)
+      </p>
+      <!-- Thanh tiến trình -->
+      <div class="load-more-container">
+        <div
+          class="load-more-progress"
+          [style.width.%]="progressPercentage"
+        ></div>
+      </div>
+      <button class="load-more-btn" (click)="loadMore()">
+        Load More <span>&rarr;</span>
+      </button>
+    </div>
+  </div>
+</div>

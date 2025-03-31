@@ -1,1 +1,73 @@
-<p>product-filter works!</p>
+<div class="sidebar">
+    <h5 class="sidebar-title">Room</h5>
+    <ul class="sidebar-list">
+      <li *ngFor="let room of rooms">
+        <a href="#"
+          >{{ room.name }}
+          <span>({{ room.count | number : "2.0" }})</span></a
+        >
+      </li>
+    </ul>
+
+    <h5 class="sidebar-title">By Type</h5>
+    <ul class="sidebar-list">
+      <li *ngFor="let type of types">
+        <a href="#"
+          >{{ type.name }}
+          <span>({{ type.count | number : "2.0" }})</span></a
+        >
+      </li>
+    </ul>
+
+    <h5 class="sidebar-title">Material</h5>
+    <ul class="sidebar-list">
+      <li *ngFor="let material of materials">
+        <a href="#"
+          >{{ material.name }}
+          <span>({{ material.count | number : "2.0" }})</span></a
+        >
+      </li>
+    </ul>
+    <!-- Filter Price -->
+    <div class="filter-section">
+      <h5 class="sidebar-title">Price</h5>
+      <input
+        type="range"
+        min="0"
+        max="12000000"
+        step="1000"
+        [(ngModel)]="selectedPrice"
+        class="form-range"
+      />
+      <div class="price-input-group">
+        <input type="text" class="price-input" [(ngModel)]="minPrice" />
+        <span class="price-separator">vnd</span>
+        <span class="price-separator">to</span>
+        <span>to</span>
+        <input
+          type="text"
+          class="form-control price-input"
+          [(ngModel)]="maxPrice"
+        />
+        <span class="price-separator">vnd</span>
+      </div>
+    </div>
+    <!-- Filter Color -->
+    <!-- Filter Color -->
+    <div class="filter-section">
+      <h5 class="sidebar-title">Color</h5>
+      <div class="d-flex flex-wrap">
+        <div
+          *ngFor="let color of colors"
+          class="color-item d-flex align-items-center me-3"
+          (click)="selectColor(color)"
+        >
+          <div
+            class="color-circle"
+            [ngStyle]="{ 'background-color': color.hex }"
+          ></div>
+          <span class="color-name">{{ color.name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>

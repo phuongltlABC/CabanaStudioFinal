@@ -33,11 +33,12 @@ export const routes: Routes = [
       { path: 'special-offer', component:PromotionSpecialOffersComponent },
     ]
    },
-  { path: 'product', component:ProductComponent,
-    children:[
-      { path: 'product-detail', component:ProductDetailComponent },
-    ]
+  { path: 'product', component: ProductComponent,
+    // children:[
+    //   { path: 'product-detail', component:ProductDetailComponent },
+    // ]
    },
+   { path: 'product/:id', component: ProductDetailComponent }, // Nhận ID sản phẩm
   { path: 'sign', component:SignComponent,
     children:[
       { path: 'signin', component:SignInComponent },

@@ -48,27 +48,9 @@ const orderItemSchema = new mongoose.Schema({
 const OrderItem = mongoose.model('OrderItem', orderItemSchema);
 
 // 🏷️ Định nghĩa Schema cho Products
-const productSchema = new mongoose.Schema({
-  "Product ID": String,
-  "name": String,
-  "brand": String,
-  "description": String,
-  "room": String,
-  "type": String,
-  "color": String,
-  "material": String,
-  "price": Number,
-  "stock": Number,
-  "status": String,
-  "discount": Object,
-  "dimensions": Object,
-  "images": [String]
-}, { collection: 'products' });
-
-const Product = mongoose.model('Product', productSchema);
 
 // ============ ROUTES ============
-
+//==========order==============
 // 1️⃣ Lấy toàn bộ đơn hàng
 app.get('/orders', async (req, res) => {
   try {
@@ -103,8 +85,14 @@ app.get('/orders/:orderID', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+//========product============
+import Product from './models/Product.js';
+import productRoutes from './routes/productRoutes.js';
 
-// Khởi động server
+app.use('/products', productRoutes);
+
+
+//========== KHỞI ĐỘNG SERVER
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);

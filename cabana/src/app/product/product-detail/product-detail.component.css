@@ -1,0 +1,142 @@
+.product-detail {
+    padding: 40px;
+    background: #f8edea;
+  }
+  
+  .breadcrumb {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .product-images {
+    text-align: center;
+    width: 100%;
+  max-width: 600px; /* Điều chỉnh tùy theo layout */
+  margin: auto;
+  position: relative;
+  border-radius: 8px;
+  }
+  
+  .main-img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+  margin: auto;
+    border-radius: 8px;
+  }
+  
+  .thumbnail-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .thumbnail {
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  .thumbnail-img {
+    width: 100%; /* Chiều rộng full container */
+    height: 100%; /* Chiều cao full container */
+    object-fit: cover; /* Scale ảnh mà không bị méo */
+    border-radius: 8px; /* Bo góc nhẹ nếu cần */
+  }
+  .thumbnail:hover {
+    border: 2px solid #000;
+  }
+  
+  .more-images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-weight: bold;
+  }
+  
+  .product-name {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  .product-price del {
+    font-size: 16px;
+    color: #999;
+  }
+  
+  .product-price span {
+    font-size: 22px;
+    font-weight: bold;
+    color: red;
+  }
+  
+  .quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .quantity-selector button {
+    padding: 5px 10px;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .quantity-selector input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  
+  .add-to-cart-btn {
+    background: white;
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .buy-now-btn {
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .view-3d-btn {
+    background: transparent;
+    border: 2px solid #0056b3;
+    color: #0056b3;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .shipping-info p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .product-description {
+    margin-top: 40px;
+  }
+  
+  .icon {
+    width: 24px; /* Kích thước icon */
+    height: 24px;
+    margin-right: 8px; /* Khoảng cách giữa icon và text */
+    vertical-align: middle; /* Canh giữa icon với chữ */
+  }
