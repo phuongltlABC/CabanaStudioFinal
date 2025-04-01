@@ -1,0 +1,109 @@
+/* Sidebar */
+.sidebar {
+    background: #F8F1EB;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .sidebar-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 12px;
+    color: #374151;
+  }
+  
+  .sidebar-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 3px;
+    height: 18px;
+    background-color: #002147;
+    border-radius: 2px;
+  }
+  
+  .sidebar-list {
+    padding: 0;
+    list-style: none;
+  }
+  
+  .sidebar-list li {
+    padding: 8px 0;
+  }
+  
+  .sidebar-list li a {
+    text-decoration: none;
+    color: #374151;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+  }
+  
+  .sidebar-list li a span {
+    color: #6B7280;
+    font-size: 14px;
+  }
+  /* Căn chỉnh lại hàng ngang */
+.price-input-group {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap; /* Ngăn chữ bị xuống dòng */
+  margin-bottom: 10px;
+}
+/* Style cho thanh trượt giá */
+.price-input {
+  width: 70px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 6px;
+  font-size:12px;
+}
+.price-seperator{
+  font-size: 12px;
+  color:#333;
+}
+
+/* Style cho các ô màu */
+.color-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.color-circle:hover {
+  transform: scale(1.1);
+  border: 2px solid #000;
+}
+/* Price Filter */
+.form-range {
+  width: 100%;
+  accent-color: #2d3a4a;
+}
+.color-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.color-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin-right: 8px;
+}
+
+.color-name {
+  font-size: 12px;
+  color: #333;
+}

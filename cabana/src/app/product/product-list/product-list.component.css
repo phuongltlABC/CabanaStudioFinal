@@ -1,0 +1,183 @@
+
+  /* Product List */
+  .product-title {
+    font:var(--h1-bold-40px);
+    margin-bottom: 15px;
+    color: var(--accent_1_100)
+    
+  }
+  
+  .product-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: filter 0.3s ease-in-out;
+  }
+  .product-card:hover {
+    filter: brightness(70%); 
+  }
+  .product-actions {
+    position: absolute;
+    top: 40%; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .product-actions .load-more-btn {
+    background-color: var(--accent_1_100);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  /* View 3D Model - Dạng Outline */
+.product-actions .view-3d-btn {
+    background-color: transparent;
+    color: var(--accent_1_100); 
+    border: 2px solid var(--accent_1_100); 
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    width: 150px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .product-actions .view-3d-btn:hover {background-color: #2d3748;
+
+  }
+  .product-card:hover .product-actions {
+    opacity: 1;
+  }
+  .discount {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #002147;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .product-name{
+    color: var(--accent_1_100);
+    text-align: left;
+    /* font-size: 16px; */
+     /* Điều chỉnh kích thước chữ */
+    max-height: 48px; /* Chiều cao tối đa để hiển thị 2 dòng (có thể chỉnh lại) */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Giới hạn hiển thị 1 dòng */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+  .product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  /* Căn lề trái giá sản phẩm */
+.product-price {
+    text-align: left;
+    margin-top: 5px;
+    font:10px;
+    /* font: var(--product-price-18px); */
+  }
+  
+  .icon {
+    transition: filter 0.3s ease-in-out;
+  }
+  
+  .icon:hover {
+    filter: brightness(70%); /* Làm tối đi 30% */
+  }
+  /* Icon yêu thích (đối xứng với discount) */
+
+.favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px; /* Điều chỉnh kích thước phù hợp */
+    height: 24px;
+    cursor: pointer;
+  }
+  /* Icon "Add" căn phải */
+.add-to-cart {
+    position: absolute;
+    bottom: 33px;
+    right: 10px;
+    width: 24px; /* Điều chỉnh kích thước icon */
+    height: 24px;
+    cursor: pointer;
+  }
+  .load-more-container {
+    width: 60%; 
+    height: 2px; 
+    background-color: #ddd; /* Thanh mẹ màu xám */
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  .load-more-progress {
+    height: 100%;
+    background-color: var(--accent_1_100); /* Thanh con màu xanh */
+    transition: width 0.3s ease-in-out;
+  }
+  .load-more-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .load-more-line {
+    height: 2px;
+    background: linear-gradient(to right, #333 40%, #ddd 40%);
+    border: none;
+    margin: 10px 0;
+    
+  }
+  
+  .load-more-btn {
+    background-color: var(--accent_1_100);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .load-more-btn:hover {
+    background-color: #2d3748;
+  }
+  hr.load-more-line {
+    width: 60%;
+    height: 2px;
+    background-color: #333; /* Màu tối hơn */
+    border: none;
+    margin: 8px 8px; /* Giảm khoảng cách trên và dưới */
+  }
+
+ 
