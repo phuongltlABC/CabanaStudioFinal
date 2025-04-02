@@ -1,4 +1,9 @@
 
+.search-box {
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+}
   /* Product List */
   .product-title {
     font:var(--h1-bold-40px);
