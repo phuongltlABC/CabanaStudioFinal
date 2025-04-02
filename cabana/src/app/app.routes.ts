@@ -21,6 +21,7 @@ import { OrderDetailComponent } from './my-order/order-detail/order-detail.compo
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { PlaceOrderComponent } from './my-card/place-order/place-order.component';
 import { BlogMainComponent } from './blog/blog-main/blog-main.component';
+import { SplineViewerComponent } from './product/spline-viewer/spline-viewer.component';
 
 export const routes: Routes = [
   { path: '', component:HomepageComponent},
@@ -33,7 +34,7 @@ export const routes: Routes = [
       { path: 'special-offer', component:PromotionSpecialOffersComponent },
     ]
    },
-  { path: 'product', component: ProductComponent,
+  { path: 'product', component: ProductDetailComponent,
     // children:[
     //   { path: 'product-detail', component:ProductDetailComponent },
     // ]

@@ -1,5 +1,19 @@
 <h2 class="product-title">Our Collection Of Products</h2>
+<div class="container">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search An Item" (input)="searchProducts($event)">
+    <img src="assets/icon/search_icon.png" class="icon favorite-icon" alt="Search" />
+  </div>
+</div>
+<div *ngIf="displayedProducts.length === 0" class="alert alert-warning text-center">
+  No products found matching your search criteria.
+</div>
 <div class="row">
+  <div>
+    <p>
+      Showing {{ displayedProducts.length }} of {{ products.length }} item(s)
+    </p>
+  </div>
   <div class="col-md-4 mb-4" *ngFor="let product of displayedProducts">
     <!-- Debug dữ liệu -->
     <!-- <pre>{{ product | json }}</pre> -->
