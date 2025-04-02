@@ -1,0 +1,42 @@
+.cart-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  input {
+    width: 50px;
+  }
+  
+  button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: darkred;
+  }
+  
+  .total {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+  

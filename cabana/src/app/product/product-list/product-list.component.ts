@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../service/product.service';
+import { AddToCartBtnComponent } from '../add-to-cart-btn/add-to-cart-btn.component';
 
 @Component({
   selector: 'app-product-list',
-  imports: [CommonModule],
+  imports: [CommonModule, AddToCartBtnComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
