@@ -19,7 +19,4 @@ export class OrderService {
   getOrderDetails(orderID: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/orders/${orderID}`);
   }
-
-
-  
 }

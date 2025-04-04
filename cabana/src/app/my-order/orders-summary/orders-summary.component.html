@@ -43,7 +43,7 @@
               <div *ngIf="!order.productImage" class="no-image"></div>
             </div>
             <div class="product-info">
-              {{ order["Product ID"] }}
+              {{ order["productId"] }}
             </div>
           </div>
         </td>
@@ -51,7 +51,7 @@
         <td>N/A</td> <td>{{ order["Created Date"] | date: 'dd-MM-yyyy' }}</td> <td>{{ order["Total Value"] | currency:'VND' }}</td>
         <td>{{ order["Payment Method"] }}</td>
         <td>
-          <button class="view-button" [routerLink]="['/my-order/order-details', order['Order ID']]">
+          <button class="view-button" [routerLink]="['/order-details', order['Order ID']]">
             Re-Order →
           </button>
         </td>

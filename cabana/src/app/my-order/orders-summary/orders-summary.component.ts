@@ -3,11 +3,11 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { OrderService } from '../../service/order.service';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-orders-summary',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, CurrencyPipe], // Thêm CurrencyPipe
+  imports: [CommonModule, RouterLink , RouterModule, FormsModule, CurrencyPipe],
   templateUrl: './orders-summary.component.html',
   styleUrls: ['./orders-summary.component.css']
 })
