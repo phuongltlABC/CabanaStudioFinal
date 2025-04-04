@@ -43,7 +43,7 @@
 <!-- Nhóm icon + nút menu -->
 <div class="group-navigation">
     <button mat-button class="btn-navigation"><img src="assets/icon/search_icon.png" alt="Search"></button>
-    <button mat-button class="btn-navigation"><img src="assets/icon/cart_icon.png" alt="Cart"></button>
+    <button mat-button class="btn-navigation"><a routerLink="my-cart"><img src="assets/icon/cart_icon.png" alt="Cart"></a></button>
     <button mat-button class="btn-navigation" [matMenuTriggerFor]="profile"><img src="assets/icon/human_icon.png" alt="Profile">
         <i class="material-icons">arrow_drop_down</i>
     </button>
@@ -54,9 +54,9 @@
         <button mat-menu-item><a routerLink="my-cart">Wishlist</a></button>
         <button mat-menu-item><a routerLink="my-cart">My Cart</a></button>
         <button mat-menu-item><a routerLink="my-voucher">My voucher</a></button>
-        <button mat-menu-item><a routerLink="">Orders</a></button>
-        <button mat-menu-item><a routerLink="product">Settings</a></button>
-        <button mat-menu-item><a routerLink="product">Sign out</a></button>
+        <button mat-menu-item><a routerLink="my-order">Orders</a></button>
+        <button mat-menu-item><a routerLink="home">Settings</a></button>
+        <button mat-menu-item><a routerLink="home">Sign out</a></button>
     </mat-menu>
     <div class="menu-icon" (click)="toggleMenu()">☰</div>
 </div>

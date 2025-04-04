@@ -16,7 +16,6 @@ import { EditProfileComponent } from './my-profile/edit-profile/edit-profile.com
 import { PromotionSpecialOffersComponent } from './promotion/promotion-special-offers/promotion-special-offers.component';
 import { PolicyComponent } from './policy/policy/policy.component';
 import { MyOrderComponent } from './my-order/my-order/my-order.component';
-import { OrderDetailComponent } from './my-order/order-detail/order-detail.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { MyCartComponent } from './my-card/my-card/my-card.component';
 import { SplineViewerComponent } from './product/spline-viewer/spline-viewer.component';
@@ -24,6 +23,9 @@ import { CheckOutComponent } from './checkout/checkout/checkout.component';
 import { CartComponent } from './checkout/cart/cart.component';
 import { CustomerInformationComponent } from './checkout/customer-information/customer-information.component';
 import { ConfirmationComponent } from './checkout/confirmation/confirmation.component';
+import { OrderDetailsComponent } from './my-order/order-details/order-details.component';
+import { OrdersSummaryComponent } from './my-order/orders-summary/orders-summary.component';
+import { MyVoucherComponent } from './my-voucher/my-voucher/my-voucher.component';
 
 export const routes: Routes = [
   { path: '', component:HomepageComponent},
@@ -59,9 +61,12 @@ export const routes: Routes = [
     ]
    },
   { path: 'policy', component:PolicyComponent },
+  { path: 'my-voucher', component:MyVoucherComponent },
   { path: 'my-order', component:MyOrderComponent,
     children:[
-      { path: 'order-detail', component:OrderDetailComponent },
+      { path: '', redirectTo: 'order-summary', pathMatch: 'full' },
+      {path: 'order-details', component: OrderDetailsComponent},
+      {path:'order-summary', component:OrdersSummaryComponent}
     ]
    },
   { path: 'my-cart', component:MyCartComponent},

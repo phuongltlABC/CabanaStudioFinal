@@ -1,26 +1,31 @@
-<body>
-    <div class="container my-5">
-        <h2>My Voucher</h2>
-        <div class="row g-3">
-            <div class="col-md-4" *ngFor="let voucher of vouchers">
-                <div class="voucher-card">
-                    <h5 class="voucher-title">{{voucher.discount}}</h5>
-                    <p class="voucher-description">{{voucher.description}}</p>
-                    <p><strong>Code:</strong> {{voucher.code}}</p>
-                    <p><strong>Expiry:</strong> {{voucher.expiry}}</p>
-                </div>
-            </div>
+<div class="voucher-container">
+    <h2>My Voucher</h2>
+    <div class="voucher-grid">
+      <div class="voucher-card" *ngFor="let voucher of myVouchers">
+        <h3>{{ voucher.discount }}</h3>
+        <p class="condition">{{ voucher.condition }}</p>
+        <p class="left" *ngIf="voucher.left">{{ voucher.left }}</p>
+        <p class="code">Code: <strong>{{ voucher.code }}</strong></p>
+        <div class="actions">
+          <span>💾 Save</span>
+          <span>➡️ Apply</span>
         </div>
-        <h2 class="mt-5">Unlock New Voucher</h2>
-        <div class="row g-3">
-            <div class="col-md-4" *ngFor="let newVoucher of newVouchers">
-                <div class="voucher-card">
-                    <h5 class="voucher-title">{{newVoucher.discount}}</h5>
-                    <p class="voucher-description">{{newVoucher.description}}</p>
-                    <p><strong>Code:</strong> {{newVoucher.code}}</p>
-                    <p><strong>Expiry:</strong> {{newVoucher.expiry}}</p>
-                </div>
-            </div>
-        </div>
+        <p class="details">{{ voucher.details }}</p>
+      </div>
     </div>
-</body>
+  
+    <h2>Unlock New Voucher</h2>
+    <div class="voucher-grid">
+      <div class="voucher-card" *ngFor="let voucher of newVouchers">
+        <h3>{{ voucher.discount }}</h3>
+        <p class="condition">{{ voucher.condition }}</p>
+        <p class="left" *ngIf="voucher.left">{{ voucher.left }}</p>
+        <p class="code">Code: <strong>{{ voucher.code }}</strong></p>
+        <div class="actions">
+          <span>🛒 Continue Shopping</span>
+        </div>
+        <p class="details">{{ voucher.details }}</p>
+      </div>
+    </div>
+  </div>
+  

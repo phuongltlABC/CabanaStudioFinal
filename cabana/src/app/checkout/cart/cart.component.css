@@ -81,9 +81,6 @@
     font-size: 16px;
     cursor: pointer;
   }
-  .order-summary button :hover{
-    background: var(--accent_1_100);
-  }
 
   a{
     text-decoration: none;

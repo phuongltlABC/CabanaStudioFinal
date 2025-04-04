@@ -1,40 +1,61 @@
 <div class="orders-summary-page">
-    <h2>Orders</h2>
-    <div class="toolbar">
-      <input
-        type="text"
-        placeholder="Search by Order ID..."
-        [(ngModel)]="searchText"
-      />
-    </div>
-  
-    <table class="orders-table">
-      <thead>
-        <tr>
-          <th>Order ID</th>
-          <th>Status</th>
-          <th>Payment Method</th>
-          <th>Created Date</th>
-          <th>Total Value</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let order of filteredOrders">
-          <!-- Dùng bracket notation -->
-          <td>{{ order["Order ID"] }}</td>
-          <td>{{ order["Status"] }}</td>
-          <td>{{ order["Payment Method"] }}</td>
-          <td>{{ order["Created Date"] }}</td>
-          <td>{{ order["Total Value"] | currency:'VND' }}</td>
-          <td>
-            <!-- Điều hướng tới trang chi tiết -->
-            <button [routerLink]="['/orders', order['Order ID']]">
-              View
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <h2>Orders</h2>
+  <div class="toolbar">
+    <input
+      type="text"
+      placeholder="Search by Order ID..."
+      [(ngModel)]="searchText"
+    />
   </div>
-  
+
+  <div class="filter-buttons">
+    <button class="filter-button active">All</button>
+    <button class="filter-button">In progress</button>
+    <button class="filter-button">Confirmed</button>
+    <button class="filter-button">Shipping</button>
+    <button class="filter-button">Delivered</button>
+    <button class="filter-button">Completed</button>
+    <button class="filter-button">Returned</button>
+    <button class="filter-button">Canceled</button>
+  </div>
+
+  <p class="item-count">Showing {{ orders.length }} item(s)</p>
+
+  <table class="orders-table">
+    <thead>
+      <tr>
+        <th>Order no.</th>
+        <th>Items</th>
+        <th>Status</th>
+        <th>Tracking ID</th>
+        <th>Delivery Date</th>
+        <th>Price</th>
+        <th>Payment Method</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of filteredOrders">
+        <td>{{ order["Order ID"] }}</td>
+        <td>
+          <div class="item-details">
+            <div class="product-image">
+              <img *ngIf="order.productImage" [src]="order.productImage" alt="Product Image" />
+              <div *ngIf="!order.productImage" class="no-image"></div>
+            </div>
+            <div class="product-info">
+              {{ order["Product ID"] }}
+            </div>
+          </div>
+        </td>
+        <td>{{ order["Status"] }}</td>
+        <td>N/A</td> <td>{{ order["Created Date"] | date: 'dd-MM-yyyy' }}</td> <td>{{ order["Total Value"] | currency:'VND' }}</td>
+        <td>{{ order["Payment Method"] }}</td>
+        <td>
+          <button class="view-button" [routerLink]="['/my-order/order-details', order['Order ID']]">
+            Re-Order →
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
