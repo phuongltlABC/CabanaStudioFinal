@@ -4,7 +4,7 @@ import { ContactComponent } from './contact/contact/contact.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { PromotionComponent } from './promotion/promotion/promotion.component';
 import { ProductComponent } from './product/product/product.component';
-import { SignInComponent } from './sign/sign-in/sign-in.component';
+// import { SignInComponent } from './sign/sign-in/sign-in.component';
 import { SignUpComponent } from './sign/sign-up/sign-up.component';
 import { SignComponent } from './sign/sign/sign.component';
 import { BlogComponent } from './blog/blog/blog.component';
@@ -35,14 +35,12 @@ export const routes: Routes = [
     ]
    },
   { path: 'product', component: ProductComponent,
-    // children:[
-    //   { path: 'product-detail', component:ProductDetailComponent },
-    // ]
    },
-   { path: 'product-detail', component: ProductDetailComponent }, // Nhận ID sản phẩm
+   { path: 'spline-viewer', component: SplineViewerComponent },
+   { path: 'product/:productId', component: ProductDetailComponent }, // Nhận ID sản phẩm
   { path: 'sign', component:SignComponent,
     children:[
-      { path: 'signin', component:SignInComponent },
+      // { path: 'signin', component:SignInComponent },
       { path: 'signup', component:SignUpComponent },
       { path: 'forgot', component:ForgotPasswordComponent },
       { path: 'set-password', component:ChangePasswordComponent },

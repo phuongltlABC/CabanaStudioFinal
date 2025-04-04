@@ -1,5 +1,6 @@
 
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-spline-viewer',
@@ -8,6 +9,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 })
 export class SplineViewerComponent implements OnInit {
   @ViewChild('splineContainer', { static: true }) splineContainer!: ElementRef;
+  
 
   ngOnInit() {
     // Tạo thẻ script để tải Web Component
