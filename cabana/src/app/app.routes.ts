@@ -44,6 +44,8 @@ export const routes: Routes = [
     // ]
    },
    { path: 'product-detail', component: ProductDetailComponent }, // Nhận ID sản phẩm
+   { path: 'spline-viewer', component: SplineViewerComponent },
+   { path: 'product/:productId', component: ProductDetailComponent }, // Nhận ID sản phẩm
   { path: 'sign', component:SignComponent,
     children:[
       { path: 'signup', component:SignUpComponent },

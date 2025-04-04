@@ -1,74 +1,69 @@
-<div class=" product-detail">
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-      <a routerLink="product">Products</a> > <span>Molger Bench</span>
-    </nav>
-  
-    <div class="row">
-      <!-- Hình ảnh sản phẩm -->
-      <div class="col-lg-6">
-        <div class="product-images">
-          <img src="assets/image/product/breeze-grey-hanging-egg-chair-1.jpg" class="main-img" alt="Molger Bench" />
-          <div class="thumbnail-container">
-            <img src="assets/image/product/breeze-grey-hanging-egg-chair-1.jpg" class="thumbnail" />
-            <img src="assets/image/product/breeze-grey-hanging-egg-chair-1.jpg" class="thumbnail" />
-            <div class="thumbnail more-images">+2</div>
-          </div>
+<div class="product-detail">
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a routerLink="/product">Products</a> > <span>{{ product.name }}</span> <!-- Hiển thị tên sản phẩm -->
+  </nav>
+
+  <div class="row">
+    <!-- Hình ảnh sản phẩm -->
+    <div class="col-lg-6">
+      <div class="product-images">
+        <img [src]="product.images[0]" class="main-img" alt="{{ product.name }}" /> <!-- Hiển thị ảnh chính -->
+        <div class="thumbnail-container">
+          <img *ngFor="let image of product.images; let i = index" 
+               [src]="image" 
+               [alt]="'Thumbnail ' + i" 
+               class="thumbnail" />
+          <div *ngIf="product.images.length > 3" class="thumbnail more-images">+{{ product.images.length - 3 }}</div>
         </div>
-      </div>
-  
-      <!-- Thông tin sản phẩm -->
-      <div class="col-lg-6">
-        <h2 class="product-name">DingDing Molger Bench</h2>
-        <p class="product-price">
-          <del>460.000 VND</del>
-          <span class="text-danger">402.000 VND</span>
-        </p>
-  
-        <!-- Các thông tin -->
-        <p><strong>Color:</strong> Whiskey Brown</p>
-        <p><strong>Material:</strong> Solid Birch</p>
-        <p><strong>Size:</strong> W 79cm x D 38cm x H 50cm</p>
-        <p><strong>Room:</strong> Living Room, Bedroom</p>
-        <p><strong>Brand:</strong> DingDing</p>
-  
-        <!-- Chọn số lượng -->
-        <div class="quantity-selector">
-          <button>-</button>
-          <input type="number" value="1" min="1" />
-          <button>+</button>
-        </div>
-  
-        <!-- Nút Add to Cart + Buy Now -->
-        
-        <button class="buy-now-btn">Buy Now →</button>
-  
-        <!-- Thông tin giao hàng -->
-        <div class="shipping-info">
-            <p>
-              <img src="assets/icon/truck_icon.png" alt="Shipping Icon" class="icon" />
-              Free worldwide shipping on all orders over 4.000.000 VND
-            </p>
-            <p>
-              <img src="assets/icon/deliver_icon.png" alt="Delivery Icon" class="icon" />
-              Delivers in: 3-7 Working Days Shipping & Return
-            </p>
-          </div>
-  
-        <!-- Nút View 3D Model -->
-        <button class="view-3d-btn">View 3D Model</button>
       </div>
     </div>
-  
-    <!-- Mô tả sản phẩm -->
-    <div class="product-description">
-      <h3>Description</h3>
-      <p>
-        The DingDing Molger Bench may look like a rack with two layers, but it is not. 
-        Richard Clack designed the bench to be used in various settings, such as a 
-        bathroom as an open storage unit for towels and bath materials. 
-        With a straightforward design and look, it fits almost any style or setting.
+
+    <!-- Thông tin sản phẩm -->
+    <div class="col-lg-6">
+      <h2 class="product-name">{{ product.name }}</h2> <!-- Tên sản phẩm -->
+      <p class="product-price">
+        <del>{{ product.price | currency }}</del> <!-- Giá gốc -->
+        <span class="text-danger">{{ product.discountedPrice | currency }}</span> <!-- Giá giảm (Chưa có trường `discountedPrice`, tính toán giá giảm từ giá gốc và tỷ lệ giảm) -->
       </p>
+
+      <!-- Các thông tin -->
+      <p><strong>Color:</strong> {{ product.color }}</p> <!-- Màu sắc -->
+      <p><strong>Material:</strong> {{ product.material }}</p> <!-- Chất liệu -->
+      <p><strong>Size:</strong> {{ product.dimensions.length_cm }} x {{ product.dimensions.width_cm }} x {{ product.dimensions.height_cm }} cm</p> <!-- Kích thước -->
+      <p><strong>Room:</strong> {{ product.room }}</p> <!-- Phòng -->
+      <p><strong>Brand:</strong> {{ product.brand }}</p> <!-- Thương hiệu -->
+
+      <!-- Chọn số lượng -->
+      <div class="quantity-selector">
+        <button>-</button>
+        <input type="number" value="1" min="1" />
+        <button>+</button>
+      </div>
+
+      <!-- Nút Add to Cart + Buy Now -->
+      <button class="buy-now-btn">Buy Now →</button>
+
+      <!-- Thông tin giao hàng -->
+      <div class="shipping-info">
+        <p>
+          <img src="assets/icon/truck_icon.png" alt="Shipping Icon" class="icon" />
+          Free worldwide shipping on all orders over 4.000.000 VND
+        </p>
+        <p>
+          <img src="assets/icon/deliver_icon.png" alt="Delivery Icon" class="icon" />
+          Delivers in: 3-7 Working Days Shipping & Return
+        </p>
+      </div>
+
+      <!-- Nút View 3D Model -->
+      <button class="view-3d-btn">View 3D Model</button>
     </div>
   </div>
-  
+
+  <!-- Mô tả sản phẩm -->
+  <div class="product-description">
+    <h3>Description</h3>
+    <p>{{ product.description }}</p> <!-- Mô tả sản phẩm -->
+  </div>
+</div>

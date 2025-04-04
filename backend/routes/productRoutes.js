@@ -16,19 +16,40 @@ router.get('/', async (req, res) => {
   }
 });
 // Lấy thông tin chi tiết của một sản phẩm theo ID
+// router.get('/:productID', async (req, res) => {
+//     try {
+//         const { productID } = req.params;
+//         console.log("Received productID:", productID);  
+//         const product = await Product.findOne({ "productId": productID });
+
+//         if (!product) {
+//             return res.status(404).json({ message: 'Product not found' });
+//         }
+
+//         res.json(product);
+//     } catch (err) {
+//         res.status(500).json({ error: err.message });
+//     }
+// });
+
+
 router.get('/:productID', async (req, res) => {
-    try {
-        const { productID } = req.params;
-        const product = await Product.findOne({ "Product ID": productID });
+  try {
+      const { productID } = req.params;
+      console.log("Received productID:", productID);  // Log giá trị của productID nhận từ URL
 
-        if (!product) {
-            return res.status(404).json({ message: 'Product not found' });
-        }
+      // Kiểm tra xem productId có khớp với giá trị trong cơ sở dữ liệu không
+      const product = await Product.findOne({ "productId": productID });
 
-        res.json(product);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+      if (!product) {
+          return res.status(404).json({ message: 'Product not found' });
+      }
+
+      res.json(product);
+  } catch (err) {
+      res.status(500).json({ error: err.message });
+  }
 });
+
 // module.exports = router;
 export default router; // Dùng export default thay vì module.exports
