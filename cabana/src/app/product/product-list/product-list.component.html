@@ -5,10 +5,12 @@
     <img src="assets/icon/search_icon.png" class="icon favorite-icon" alt="Search" />
   </div>
 </div>
+
 <div *ngIf="displayedProducts.length === 0" class="alert alert-warning text-center">
   No products found matching your search criteria.
 </div>
 <div class="row">
+  
   <div>
     <p>
       Showing {{ displayedProducts.length }} of {{ products.length }} item(s)
@@ -17,9 +19,11 @@
   <div class="col-md-4 mb-4" *ngFor="let product of displayedProducts; trackBy: trackByProduct">
     <!-- Debug dữ liệu -->
     <!-- <pre>{{ product | json }}</pre> -->
-    <!-- add track by to track which product is showing -->
 
-    <div class="product-card position-relative">
+
+    <div class="product-card position-relative" 
+    (click)="goToProductDetail(product.productId)"
+    >
       <!-- Tag giảm giá (ẩn nếu không có giảm giá) -->
       <span
         class="discount"
@@ -72,7 +76,7 @@
       </p>
       <!-- Nút View 3D Model và Add to Cart -->
       <div class="product-actions">
-        <button class="load-more-btn">View 3D Model</button>
+        <button class="load-more-btn" (click)="goTo3DModel()">View 3D Model</button>
         <app-add-to-cart-btn class="load-more-btn" [product]="product"></app-add-to-cart-btn>
         
       </div>

@@ -48,6 +48,8 @@ export const routes: Routes = [
    { path: 'signin', component:SignInComponent },
     { path: 'signup', component:SignUpComponent },
     { path: 'forgot', component:ForgotPasswordComponent },
+   { path: 'spline-viewer', component: SplineViewerComponent },
+   { path: 'product/:productId', component: ProductDetailComponent }, // Nhận ID sản phẩm
   { path: 'sign', component:SignComponent,
     children:[
       { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
