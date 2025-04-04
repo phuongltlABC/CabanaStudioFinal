@@ -140,3 +140,17 @@
     margin-right: 8px; /* Khoảng cách giữa icon và text */
     vertical-align: middle; /* Canh giữa icon với chữ */
   }
+  .load-more-btn {
+    background-color: var(--accent_1_100);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: auto;
+    margin-left: 10px;
+  }

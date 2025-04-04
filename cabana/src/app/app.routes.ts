@@ -55,8 +55,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
       { path: 'set-password', component:ChangePasswordComponent },
       { path: 'verify', component:VerifyCodeComponent },
-    ]
-   },
+    ]},
   { path: 'blog', component:BlogComponent},
   { path: 'blog-content', component:BlogContentComponent},
   { path: 'blog/blog-content', redirectTo: 'blog-content', pathMatch: 'full' },
@@ -72,7 +71,7 @@ export const routes: Routes = [
       {path:'order-summary', component:OrdersSummaryComponent}
     ]
    },
-   {path: 'order-details', component: OrderDetailsComponent},
+   { path: 'orders/:orderID', component: OrderDetailsComponent },
   { path: 'my-cart', component:MyCartComponent},
   {path: 'check-out', component:CheckOutComponent,
     children:[

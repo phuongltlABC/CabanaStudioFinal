@@ -51,7 +51,7 @@
         <td>N/A</td> <td>{{ order["Created Date"] | date: 'dd-MM-yyyy' }}</td> <td>{{ order["Total Value"] | currency:'VND' }}</td>
         <td>{{ order["Payment Method"] }}</td>
         <td>
-          <button class="view-button" [routerLink]="['/order-details', order['Order ID']]">
+          <button class="view-button" [routerLink]="['/orders', order['Order ID']]">
             Re-Order →
           </button>
         </td>
