@@ -6,7 +6,7 @@ import { RouterOutlet } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { FeatureProductComponent } from "../../homepage/feature-product/feature-product.component";
-import { CheckoutService } from '../../service/checkout.service';
+
 @Component({
   selector: 'app-checkout',
   standalone: true,
@@ -15,5 +15,5 @@ import { CheckoutService } from '../../service/checkout.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckOutComponent{
-  constructor(public checkoutService: CheckoutService) {}
+
 }
