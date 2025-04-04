@@ -1,28 +1,57 @@
 <div class="cart-container">
-    <h2>Giỏ hàng của bạn</h2>
-    <table>
-      <thead>
+  <h2 class="cart-title">Cart Summary</h2>
+
+  <table class="cart-table">
+    <thead>
+      <tr>
+        <th><input type="checkbox" (change)="toggleBrandSelection('all')"></th>
+        <th>Brand</th>
+        <th>Items</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th>Config</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let brand of groupedCart | keyvalue">
         <tr>
-          <th>Tên sản phẩm</th>
-          <th>Số lượng</th>
-          <th>Giá</th>
-          <th>Thành tiền</th>
-          <th>Hành động</th>
+          <td><input type="checkbox" (change)="toggleBrandSelection(brand.key)"></td>
+          <td colspan="6" class="brand-header">{{ brand.key }}</td>
         </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of cartItems">
-          <td>{{ item.name }}</td>
-          <td><input type="number" [value]="item.quantity" (change)="updateQuantity(item.productId, $event)" min="1"></td>
-          <td>{{ item.price | currency:'VND' }}</td>
-          <td>{{ item.price * item.quantity | currency:'VND' }}</td>
+        <tr *ngFor="let item of brand.value">
+          <td><input type="checkbox" [(ngModel)]="item.selected" (change)="toggleSelection(item.productId)"></td>
+          <td>{{ brand.key }}</td>
+          <td class="product-info">
+            <div class="product-img"></div>
+            <div class="product-name">{{ item.name }}</div>
+          </td>
           <td>
-            <button (click)="removeItem(item.productId)">Xóa</button>
+            <span class="price-old">{{ item.price | number:'1.0-0' }}</span>
+            <span class="price-new">{{ (item.price * 0.915) | number:'1.0-0' }}</span>
+            <span class="currency">vnd</span>
+          </td>
+          <td class="quantity-container">
+            <button class="qty-btn" (click)="updateQuantity(item.productId, { target: { value: item.quantity - 1 } })">−</button>
+            <input type="number" [value]="item.quantity" (change)="updateQuantity(item.productId, $event)" min="1">
+            <button class="qty-btn" (click)="updateQuantity(item.productId, { target: { value: item.quantity + 1 } })">+</button>
+          </td>
+          <td>
+            <span class="price-new">{{ item.price * item.quantity | number:'1.0-0' }}</span>
+            <span class="currency">vnd</span>
+          </td>
+          <td>
+            <button class="edit-btn">Edit</button>
+            <button class="remove-btn" (click)="removeItem(item.productId)">Remove</button>
           </td>
         </tr>
-      </tbody>
-    </table>
-    <p class="total">Tổng tiền: {{ totalPrice | currency:'VND' }}</p>
-    <button (click)="clearCart()">Xóa tất cả</button>
+      </ng-container>
+    </tbody>
+  </table>
+
+  <div class="cart-summary">
+    <p>Number Of Items <b>{{ cartItems.length }}</b></p>
+    <p>Total (temp) <b class="total-price">{{ totalTemp | number:'1.0-0' }} vnd</b></p>
+    <button class="order-btn" (click)="createOrder()">🛒 Place Order</button>
   </div>
-  
+</div>

@@ -1,13 +1,8 @@
 button {
-    background: #28a745;
-    color: white;
-    padding: 10px 15px;
+    background: var(--accent_1_100);
+    color: var(--primary_2_100);
     border: none;
-    cursor: pointer;
-    font-size: 14px;
+    
   }
-  
-  button:hover {
-    background: #218838;
-  }
+
   

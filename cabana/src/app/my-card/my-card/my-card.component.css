@@ -1,42 +1,128 @@
 .cart-container {
-    width: 80%;
-    margin: 20px auto;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background: #f9f9f9;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  input {
-    width: 50px;
-  }
-  
-  button {
-    background: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: darkred;
-  }
-  
-  .total {
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-top: 10px;
-  }
-  
+  width: 90%;
+  margin: auto;
+  background: #f7e5db;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.cart-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-table th {
+  background: #475569;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.cart-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+}
+
+.product-img {
+  width: 40px;
+  height: 40px;
+  background: gray;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.price-old {
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 5px;
+}
+
+.price-new {
+  color: #ec6b6b;
+  font-weight: bold;
+}
+
+.currency {
+  color: #1a1a2e;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+}
+
+.qty-btn {
+  background: #ddd;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.qty-btn:hover {
+  background: #bbb;
+}
+
+input[type="number"] {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ddd;
+  margin: 0 5px;
+}
+
+.edit-btn {
+  color: #475569;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.remove-btn {
+  color: #ec6b6b;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.total-price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
+}
+
+.order-btn {
+  background: #475569;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: block;
+  margin: 20px 0;
+}
+
+.order-btn:hover {
+  background: #334155;
+}

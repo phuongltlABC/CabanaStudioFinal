@@ -4,7 +4,7 @@ import { ProductService } from '../../service/product.service';
 import { FilterService } from '../../service/filter.service';
 import { FormsModule } from '@angular/forms';
 import { AddToCartBtnComponent } from '../add-to-cart-btn/add-to-cart-btn.component';
-
+import { CartService } from '../../service/cart.service';
 @Component({
   selector: 'app-product-list',
   imports: [CommonModule, AddToCartBtnComponent, FormsModule],
@@ -20,7 +20,8 @@ export class ProductListComponent implements OnInit {
   searchText: string = ''; // Biến lưu nội dung tìm kiếm
   constructor(
     private productService: ProductService,
-    private filterService: FilterService
+    private filterService: FilterService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -120,4 +121,19 @@ export class ProductListComponent implements OnInit {
   get progressPercentage(): number {
     return (this.displayedProducts.length / this.products.length) * 100;
   }
+
+  addToCart(product: any): void {
+    this.cartService.addToCart({
+      productId: product.productId,
+      name: product.name,
+      brand: product.brand,
+      price: product.price,
+      quantity: 1,
+      selected: false
+    });
+  }
+  trackByProduct(index: number, item: any) {
+    return item.productId; // Trả về ID để Angular biết đâu là sản phẩm nào
+  }
+  
 }

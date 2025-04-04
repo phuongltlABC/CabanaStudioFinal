@@ -4,13 +4,17 @@ import { BehaviorSubject, Observable } from 'rxjs';
 interface CartItem {
   productId: string;
   name: string;
+  brand: string;
   quantity: number;
   price: number;
+  selected?: boolean;
 }
 
 @Injectable({
   providedIn: 'root'
+  //call on global
 })
+
 export class CartService {
   private cartKey = 'my-cart';
   private cartItems: CartItem[] = JSON.parse(localStorage.getItem(this.cartKey) || '[]');
@@ -19,7 +23,6 @@ export class CartService {
 
   constructor() {}
 
-  /// lưu vào localstorage vì lười làm thêm database
   getCart(): Observable<{ items: CartItem[], totalPrice: number }> {
     return new BehaviorSubject({ items: this.cartItems, totalPrice: this.calculateTotal() }).asObservable();
   }
@@ -29,16 +32,20 @@ export class CartService {
   }
 
   addToCart(product: CartItem, quantity: number = 1): void {
-    const existingProduct = this.cartItems.find(item => item.productId === product.productId);
-
-    if (existingProduct) {
-      existingProduct.quantity += quantity;
+    console.log("Before Add:", this.cartItems);
+    const existingProductIndex = this.cartItems.findIndex(item => item.productId === product.productId);
+  
+    if (existingProductIndex !== -1) {
+      this.cartItems[existingProductIndex].quantity += quantity;
     } else {
-      this.cartItems.push({ ...product, quantity });
+      this.cartItems = [...this.cartItems, { ...product, quantity }];
     }
-
+  
     this.saveCart();
+    console.log("After Add:", this.cartItems); // Kiểm tra lại giỏ hàng
   }
+  
+  
 
   removeFromCart(productId: string): void {
     this.cartItems = this.cartItems.filter(item => item.productId !== productId);

@@ -14,9 +14,10 @@
       Showing {{ displayedProducts.length }} of {{ products.length }} item(s)
     </p>
   </div>
-  <div class="col-md-4 mb-4" *ngFor="let product of displayedProducts">
+  <div class="col-md-4 mb-4" *ngFor="let product of displayedProducts; trackBy: trackByProduct">
     <!-- Debug dữ liệu -->
     <!-- <pre>{{ product | json }}</pre> -->
+    <!-- add track by to track which product is showing -->
 
     <div class="product-card position-relative">
       <!-- Tag giảm giá (ẩn nếu không có giảm giá) -->
@@ -72,16 +73,17 @@
       <!-- Nút View 3D Model và Add to Cart -->
       <div class="product-actions">
         <button class="load-more-btn">View 3D Model</button>
-        <button class="load-more-btn">Add To Cart</button>
+        <app-add-to-cart-btn class="load-more-btn" [product]="product"></app-add-to-cart-btn>
+        
       </div>
       <!-- Icon "Add" căn phải -->
-      <img
+        <img
         src="assets/icon/add_icon.png"
         class="icon add-to-cart"
-        alt="Thêm vào giỏ"
-      />
+        alt="Thêm vào giỏ"/>
+        
     </div>
-    <app-add-to-cart-btn [product]="product"></app-add-to-cart-btn>
+    
   </div>
    <!-- Phần Load More -->
   <div class="container mb-5">

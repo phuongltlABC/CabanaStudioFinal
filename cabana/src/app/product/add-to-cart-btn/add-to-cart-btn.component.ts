@@ -26,19 +26,23 @@ interface Product {
   styleUrls: ['./add-to-cart-btn.component.css']
 })
 export class AddToCartBtnComponent {
-  @Input() product!: Product;
+  @Input() product: any;
+  quantity: number = 1; // Default quantity
 
   constructor(private cartService: CartService) {}
 
   addToCart(): void {
     if (this.product) {
+      console.log("Thêm sản phẩm kiểm tra", this.product);
+      // Gọi phương thức addToCart của CartService và truyền vào CartItem đúng cấu trúc
       this.cartService.addToCart({
-        productId: this.product.productId,
+        productId: this.product._id || this.product.productId,
         name: this.product.name,
+        brand: this.product.brand, // brand cần được truyền vào
         price: this.product.price,
-        quantity: 1
+        quantity: this.quantity,
+        selected: false // mặc định là chưa chọn
       });
     }
   }
 }
-
