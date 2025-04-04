@@ -1,1 +1,67 @@
-<p>sign-in works!</p>
+<div class="signin-container">
+    <div class="signin-image">
+    </div>
+
+    <div class="signin-form-container">
+        <div class="signin-form">
+            <!-- Signin header -->
+            <h2>Sign in</h2>
+            <p class="subtitle">Sign in to access your Cabaña Studio account.</p>
+
+            <form (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm">
+                <!-- Signin input: Email or Phone -->
+                <div class="form-group">
+                    <label for="emailOrPhone">Email or Phone number</label>
+                    <input type="text" id="emailOrPhone" name="emailOrPhone"
+                        placeholder="Enter your email or phone number" ngModel required #emailOrPhoneInput="ngModel"
+                        [class.is-invalid]="emailOrPhoneInput.invalid && emailOrPhoneInput.touched">
+                </div>
+
+                <!-- Signin input: Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" ngModel
+                        required #passwordInput="ngModel"
+                        [class.is-invalid]="passwordInput.invalid && passwordInput.touched">
+                </div>
+
+                <!-- Form Options -->
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="rememberMe" name="rememberMe" ngModel>
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <a class="forgot-password" [routerLink]="['forgot-password']">Forgot Password</a>
+                </div>
+
+                <!-- Button Sign in -->
+                <button type="submit" class="btn btn-primary" [disabled]="!signInForm.form.valid">
+                    Sign in
+                </button>
+
+                <!-- Link đến trang Sign up -->
+                <p class="signup-link">
+                    Don't have an account? <a [routerLink]="['sign-up']">Sign up</a>
+                </p>
+
+                <!-- Separator -->
+                <div class="separator">
+                    <hr><span>Or log in with</span><hr>
+                </div>
+
+                <!-- Other logins items -->
+                <div class="social-login">
+                    <button type="button" class="btn btn-social" (click)="loginWithFacebook()">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </button>
+                    <button type="button" class="btn btn-social" (click)="loginWithGoogle()">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button type="button" class="btn btn-social" (click)="loginWithApple()">
+                        <i class="fab fa-apple"></i> Apple
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
