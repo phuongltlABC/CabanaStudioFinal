@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../service/cart.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-cart',
@@ -17,7 +18,7 @@ export class MyCartComponent implements OnInit {
   totalTemp: number = 0;
   selectedItemCount: number = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadCart();
@@ -70,13 +71,17 @@ export class MyCartComponent implements OnInit {
   }
 
   toggleSelection(productId: string): void {
+    const item = this.cartItems.find(item => item.id === productId);
+    if (item) {
+      item.selected = !item.selected;
+    }
     this.updateTotalTemp();
   }
 
   updateTotalTemp(): void {
     const selectedItems = this.cartItems.filter(item => item.selected); // Thêm dòng này để khai báo biến
     this.totalTemp = selectedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    this.selectedItemCount = selectedItems.reduce((sum, item) => sum + item.quantity, 0);
+    this.selectedItemCount = selectedItems.length;
   }
   
 
@@ -87,12 +92,23 @@ export class MyCartComponent implements OnInit {
       alert("Vui lòng chọn ít nhất một sản phẩm!");
       return;
     }
-
+  
     const order = {
       items: selectedItems,
       totalPrice: this.totalTemp,
       createdAt: new Date()
     };
-    console.log("Order Created: ", order);
+  
+    this.cartService.setOrder(order);
+  
+    console.log("Navigating to checkout..."); // ✅ Kiểm tra xem hàm có chạy đến đây không
+    
+    this.router.navigate(['/check-out']).then(success => {
+      if (success) {
+        console.log("Navigation success!"); // ✅ Nếu thành công, in ra console
+      } else {
+        console.error("Navigation failed!"); // ❌ Nếu thất bại, in lỗi
+      }
+    });
   }
-}
+}  

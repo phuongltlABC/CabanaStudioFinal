@@ -19,10 +19,9 @@ import { PolicyComponent } from './policy/policy/policy.component';
 import { MyOrderComponent } from './my-order/my-order/my-order.component';
 import { OrderDetailComponent } from './my-order/order-detail/order-detail.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
-import { PlaceOrderComponent } from './my-card/place-order/place-order.component';
-import { BlogMainComponent } from './blog/blog-main/blog-main.component';
 import { MyCartComponent } from './my-card/my-card/my-card.component';
 import { SplineViewerComponent } from './product/spline-viewer/spline-viewer.component';
+import { CheckoutComponent } from './checkout/checkout/checkout.component';
 
 export const routes: Routes = [
   { path: '', component:HomepageComponent},
@@ -64,9 +63,6 @@ export const routes: Routes = [
       { path: 'order-detail', component:OrderDetailComponent },
     ]
    },
-  { path: 'my-cart', component:MyCartComponent,
-    children:[
-      { path: 'place-order', component:PlaceOrderComponent},
-    ]
-   },
+  { path: 'my-cart', component:MyCartComponent},
+  {path: 'check-out', component:CheckoutComponent}
 ];

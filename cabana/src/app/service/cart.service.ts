@@ -20,6 +20,7 @@ export class CartService {
   private cartItems: CartItem[] = JSON.parse(localStorage.getItem(this.cartKey) || '[]');
   private cartSubject = new BehaviorSubject<CartItem[]>(this.cartItems);
   private totalPriceSubject = new BehaviorSubject<number>(this.calculateTotal());
+  private orderData: any = null;
 
   constructor() {}
 
@@ -74,4 +75,12 @@ export class CartService {
     this.cartSubject.next(this.cartItems);
     this.totalPriceSubject.next(this.calculateTotal());
   }
+  setOrder(order: any): void {
+  this.orderData = order;
+}
+
+  getOrder(): any {
+  return this.orderData;
+}
+
 }

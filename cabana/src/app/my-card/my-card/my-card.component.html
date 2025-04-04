@@ -1,11 +1,9 @@
 <div class="cart-container">
   <h2 class="cart-title">Cart Summary</h2>
-
   <table class="cart-table">
     <thead>
       <tr>
-        <th><input type="checkbox" (change)="toggleBrandSelection('all')"></th>
-        <th>Brand</th>
+        <th class="chk"><input type="checkbox" (change)="toggleBrandSelection('all')"></th>
         <th>Items</th>
         <th>Unit Price</th>
         <th>Quantity</th>
@@ -15,13 +13,14 @@
     </thead>
     <tbody>
       <ng-container *ngFor="let brand of groupedCart | keyvalue">
-        <tr>
-          <td><input type="checkbox" (change)="toggleBrandSelection(brand.key)"></td>
-          <td colspan="6" class="brand-header">{{ brand.key }}</td>
-        </tr>
-        <tr *ngFor="let item of brand.value">
+          <tr class="brand-name">
+            <td><input type="checkbox" (change)="toggleBrandSelection(brand.key)"></td>
+            <td colspan="6" class="brand-header">
+              <img src="assets/icon/Home_icon.png" alt="Brand">
+              {{ brand.key }}</td>
+          </tr>
+        <tr *ngFor="let item of brand.value" [ngClass]="{ 'selected-row': item.selected }">
           <td><input type="checkbox" [(ngModel)]="item.selected" (change)="toggleSelection(item.productId)"></td>
-          <td>{{ brand.key }}</td>
           <td class="product-info">
             <div class="product-img"></div>
             <div class="product-name">{{ item.name }}</div>
@@ -41,7 +40,6 @@
             <span class="currency">vnd</span>
           </td>
           <td>
-            <button class="edit-btn">Edit</button>
             <button class="remove-btn" (click)="removeItem(item.productId)">Remove</button>
           </td>
         </tr>
@@ -50,8 +48,8 @@
   </table>
 
   <div class="cart-summary">
-    <p>Number Of Items <b>{{ cartItems.length }}</b></p>
-    <p>Total (temp) <b class="total-price">{{ totalTemp | number:'1.0-0' }} vnd</b></p>
+    <p>Number Of Items <b>{{ selectedItemCount }}</b></p>
+    <p>TOTAL (temp) <b class="total-price">{{ totalTemp | number:'1.0-0' }} vnd</b></p>
     <button class="order-btn" (click)="createOrder()">🛒 Place Order</button>
   </div>
 </div>
