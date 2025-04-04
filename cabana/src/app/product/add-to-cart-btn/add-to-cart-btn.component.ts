@@ -41,7 +41,7 @@ export class AddToCartBtnComponent {
         brand: this.product.brand, // brand cần được truyền vào
         price: this.product.price,
         quantity: this.quantity,
-        selected: false // mặc định là chưa chọn
+        selected: false, // mặc định là chưa chọn
       });
     }
   }

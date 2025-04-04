@@ -12,4 +12,9 @@ export class ProductService {
   getAllProducts(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+
+   // Lấy chi tiết sản phẩm (nếu API hỗ trợ)
+   getProductById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
 }

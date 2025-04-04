@@ -1,0 +1,259 @@
+@import '../../../styles.css';
+
+:host {
+    display: block;
+    background-color: var(--primary_2_100);
+    min-height: 100vh;
+    padding: 50px 100px 100px;
+}
+
+.signin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.signin-image {
+    flex: 1;
+    background-image: url('../../../assets/image/sign/Decor.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+
+    /* Ẩn trên màn hình nhỏ hơn */
+    @media (max-width: 991.98px) {
+        display: none;
+    }
+}
+
+.signin-form-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+
+    @media (max-width: 991.98px) {
+        flex-basis: 100%;
+        padding: 40px 20px;
+    }
+}
+
+.signin-form {
+    width: 100%;
+    max-width: 526px;
+    box-sizing: border-box;
+
+    /* Signin header */
+    h2 {
+        font: var(--h2-semibold-32px);
+        color: var(--accent_1_100);
+        margin: 0 0 16px 0;
+        text-align: left;
+    }
+
+    .subtitle {
+        font: var(--body-regular-16px);
+        color: var(--primary_1_100);
+        margin: 0 0 45px 0;
+        text-align: left;
+        line-height: 1.5;
+    }
+
+    /* Signin input group */
+    .form-group {
+        margin-bottom: 24px;
+
+        label {
+            display: block;
+            font: var(--body-regular-16px);
+            color: var(--accent_1_100);
+            margin-bottom: 8px;
+            font-weight: 400
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 15px 25px;
+            border: 1px solid var(--accent_2_100);
+            border-radius: 50px;
+            background-color: white;
+            box-sizing: border-box;
+            font: var(--body-regular-16px);
+            color: var(--accent_1_100);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+            &::placeholder {
+                color: var(--accent_2_60); 
+                font-weight: 400;
+            }
+
+            &:hover {
+                border-color: var(--primary_1_100);
+            }
+
+            &:focus {
+                outline: none;
+                border-color: var(--primary_1_100);
+            }
+        }
+    }
+
+    /* Remember me & Forgot Password */
+    .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 45px;
+        padding: 0 5px;
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+
+            input[type="checkbox"] {
+                margin-right: 8px;
+                accent-color: var(--primary_1_100);
+                width: 16px;
+                height: 16px;
+                cursor: pointer;
+            }
+
+            label {
+                font: var(--body-regular-16px);
+                color: var(--accent_1_100);
+                cursor: pointer;
+                margin-bottom: 0;
+                font-weight: 400;
+            }
+        }
+
+        .forgot-password {
+            color: #FA7979;
+            font: var(--body-regular-16px);
+            text-decoration: none;
+            font-weight: 600;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    /* Button primary section */
+    .btn-primary {
+        display: block;
+        width: 100%;
+        padding: 16px 20px;
+        border-radius: 50px;
+        font: var(--button-semibold-18px);
+        background-color: var(--primary_1_100);
+        color: white;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s ease;
+        margin-bottom: 24px;
+
+        &:hover:not(:disabled) {
+            background-color: var(--accent_1_100);
+        }
+
+        &:disabled {
+            background-color: var(--primary_1_40);
+            cursor: not-allowed;
+        }
+    }
+
+    .signup-link {
+        text-align: center;
+        margin-bottom: 45px;
+        font: var(--body-regular-16px);
+        color: var(--accent_1_100);
+
+        a {
+            color: #FA7979;
+            text-decoration: none;
+            font-weight: 600;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    /* Other logins */
+    .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 45px;
+
+        hr {
+            flex: 1;
+            border: none;
+            height: 1px;
+            background-color: var(--accent_2_100);
+        }
+
+        span {
+            font: var(--body-regular-16px);
+            color: var(--accent_2_100);
+            padding: 0 16px;
+            white-space: nowrap;
+            font-weight: 400;
+        }
+    }
+
+    /* Other logins items */
+    .social-login {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+
+        .btn-social {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 15px;
+            border: 1px solid var(--accent_2_100);
+            border-radius: 20px;
+            background-color: white;
+            font: var(--body-regular-16px);
+            color: var(--accent_1_100);
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+
+            i {
+                margin-right: 10px;
+                font-size: 1.2em;
+
+                &.fa-facebook-f {
+                    color: #1877F2;
+                }
+
+                &.fa-google {
+                    color: #DB4437;
+                }
+
+                &.fa-apple {
+                    color: #000000;
+                }
+            }
+
+            &:hover {
+                /* Đổi màu nền khi hover theo yêu cầu */
+                background-color: var(--accent_2_10);
+                border-color: var(--accent_2_100);
+            }
+        }
+
+        /* Responsive cho nút social */
+        @media (max-width: 576px) {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+}

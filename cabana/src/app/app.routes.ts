@@ -4,7 +4,6 @@ import { ContactComponent } from './contact/contact/contact.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { PromotionComponent } from './promotion/promotion/promotion.component';
 import { ProductComponent } from './product/product/product.component';
-import { SignInComponent } from './sign/sign-in/sign-in.component';
 import { SignUpComponent } from './sign/sign-up/sign-up.component';
 import { SignComponent } from './sign/sign/sign.component';
 import { BlogComponent } from './blog/blog/blog.component';
@@ -17,11 +16,17 @@ import { EditProfileComponent } from './my-profile/edit-profile/edit-profile.com
 import { PromotionSpecialOffersComponent } from './promotion/promotion-special-offers/promotion-special-offers.component';
 import { PolicyComponent } from './policy/policy/policy.component';
 import { MyOrderComponent } from './my-order/my-order/my-order.component';
-import { OrderDetailComponent } from './my-order/order-detail/order-detail.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { MyCartComponent } from './my-card/my-card/my-card.component';
 import { SplineViewerComponent } from './product/spline-viewer/spline-viewer.component';
-import { CheckoutComponent } from './checkout/checkout/checkout.component';
+import { CheckOutComponent } from './checkout/checkout/checkout.component';
+import { CartComponent } from './checkout/cart/cart.component';
+import { CustomerInformationComponent } from './checkout/customer-information/customer-information.component';
+import { ConfirmationComponent } from './checkout/confirmation/confirmation.component';
+import { OrderDetailsComponent } from './my-order/order-details/order-details.component';
+import { OrdersSummaryComponent } from './my-order/orders-summary/orders-summary.component';
+import { MyVoucherComponent } from './my-voucher/my-voucher/my-voucher.component';
+import { SignInComponent } from './sign/sign-in/sign-in.component';
 
 export const routes: Routes = [
   { path: '', component:HomepageComponent},
@@ -40,11 +45,14 @@ export const routes: Routes = [
     // ]
    },
    { path: 'product-detail', component: ProductDetailComponent }, // Nhận ID sản phẩm
+   { path: 'signin', component:SignInComponent },
+    { path: 'signup', component:SignUpComponent },
+    { path: 'forgot', component:ForgotPasswordComponent },
+   { path: 'spline-viewer', component: SplineViewerComponent },
+   { path: 'product/:productId', component: ProductDetailComponent }, // Nhận ID sản phẩm
   { path: 'sign', component:SignComponent,
     children:[
-      { path: 'signin', component:SignInComponent },
-      { path: 'signup', component:SignUpComponent },
-      { path: 'forgot', component:ForgotPasswordComponent },
+      { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
       { path: 'set-password', component:ChangePasswordComponent },
       { path: 'verify', component:VerifyCodeComponent },
     ]
@@ -52,17 +60,26 @@ export const routes: Routes = [
   { path: 'blog', component:BlogComponent},
   { path: 'blog-content', component:BlogContentComponent},
   { path: 'blog/blog-content', redirectTo: 'blog-content', pathMatch: 'full' },
-  { path: 'profile', component:MyProfileComponent,
-    children:[
-      { path: 'edit-profile', component:EditProfileComponent },
-    ]
-   },
+  { path: 'profile', component:MyProfileComponent},
+  {path: 'edit-profile', component: EditProfileComponent},
+  
+
   { path: 'policy', component:PolicyComponent },
+  { path: 'my-voucher', component:MyVoucherComponent },
   { path: 'my-order', component:MyOrderComponent,
     children:[
-      { path: 'order-detail', component:OrderDetailComponent },
+      { path: '', redirectTo: 'order-summary', pathMatch: 'full' },
+      {path:'order-summary', component:OrdersSummaryComponent}
     ]
    },
+   {path: 'order-details', component: OrderDetailsComponent},
   { path: 'my-cart', component:MyCartComponent},
-  {path: 'check-out', component:CheckoutComponent}
+  {path: 'check-out', component:CheckOutComponent,
+    children:[
+      { path: '', redirectTo: 'cart', pathMatch: 'full' },
+      { path: 'cart', component:CartComponent },
+      { path: 'custInfo', component:CustomerInformationComponent },
+      { path: 'confirm', component:ConfirmationComponent },
+    ]
+  }
 ];

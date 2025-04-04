@@ -5,9 +5,11 @@ import { FilterService } from '../../service/filter.service';
 import { FormsModule } from '@angular/forms';
 import { AddToCartBtnComponent } from '../add-to-cart-btn/add-to-cart-btn.component';
 import { CartService } from '../../service/cart.service';
+import { Router, RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-product-list',
-  imports: [CommonModule, AddToCartBtnComponent, FormsModule],
+  imports: [CommonModule, AddToCartBtnComponent, FormsModule,RouterLink],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
 })
@@ -21,7 +23,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private filterService: FilterService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router // Inject Router để điều hướng
   ) {}
 
   ngOnInit(): void {
@@ -31,8 +34,12 @@ export class ProductListComponent implements OnInit {
       console.log('Filters received:', filters);
       this.applyFilters(filters);
     });
-  }
 
+
+  }
+  goTo3DModel(): void {
+    this.router.navigate(['/spline-viewer']);
+  }
   loadProducts(): void {
     this.productService.getAllProducts().subscribe(
       (data) => {
@@ -54,11 +61,15 @@ export class ProductListComponent implements OnInit {
       }
     );
   }
-  // searchProducts(searchText: string): void {
-  //   console.log('Search text:', searchText); 
-  //   this.searchText = searchText.toLowerCase().trim(); 
-  //   this.applyFilters(this.filterService.getCurrentFilters()); 
-  // }
+ // Hàm điều hướng đến trang chi tiết sản phẩm
+ goToProductDetail(productId: string) {
+  if (productId) {
+    this.router.navigate(['/product', productId]);
+  } else {
+    console.error('productId is undefined or invalid');
+  }
+
+}
   searchProducts(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     if (!inputElement) return; // Nếu inputElement là null thì dừng luôn
@@ -94,6 +105,29 @@ export class ProductListComponent implements OnInit {
         product.name?.toLowerCase().includes(this.searchText)
       );
     }
+  
+    
+     // Lọc theo material
+  if (filters.materials && filters.materials.length > 0) {
+    filteredProducts = filteredProducts.filter(product => {
+      if (!product.material) return false;
+
+      // Tách các material của sản phẩm thành mảng, loại bỏ khoảng trắng thừa và chuyển về chữ thường
+      const productMaterials = product.material.split(',').map((m: string) => m.trim().toLowerCase());
+
+      // Kiểm tra nếu bất kỳ material nào trong bộ lọc có xuất hiện trong danh sách material của sản phẩm
+      return filters.materials.some((material: string) => 
+        productMaterials.some((prodMat: string) => prodMat.includes(material.toLowerCase()))
+      );
+    });
+  }
+     // Lọc theo giá tiền
+  if (filters.price) {
+    const { min, max } = filters.price;
+    filteredProducts = filteredProducts.filter(product => 
+      product.price >= min && product.price <= max
+    );
+  }
     // Lọc theo type
     if (filters.types) {
       filteredProducts = filteredProducts.filter(product => {
@@ -103,8 +137,6 @@ export class ProductListComponent implements OnInit {
       });
     }
   
-
-
     console.log('Filtered products:', filteredProducts); // Debug log
     this.products = filteredProducts; // Cập nhật danh sách sản phẩm đã lọc
     this.displayedProducts = this.products.slice(0, this.itemsPerPage); // Hiển thị phân trang

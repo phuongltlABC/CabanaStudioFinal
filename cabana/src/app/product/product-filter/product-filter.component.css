@@ -103,6 +103,17 @@
   margin-right: 8px;
 }
 
+/* Khi một mục được chọn */
+.sidebar-list li a.active,
+.color-item.selected {
+  color: var(--accent_1_100); /* Màu nền khi chọn */
+
+  font-weight: bold; /* Đổi kiểu chữ để nổi bật */
+}
+
+.color-item.selected .color-circle {
+  border: 2px solid #ffffff; /* Đổi viền cho vòng tròn màu khi chọn */
+}
 .color-name {
   font-size: 12px;
   color: #333;

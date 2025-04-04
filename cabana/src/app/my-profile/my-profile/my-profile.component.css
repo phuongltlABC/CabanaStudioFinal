@@ -1,0 +1,92 @@
+.profile-container {
+    width: 1240px;
+    padding: 50px 100px;
+    background-color: var(--primary_2_100);
+}
+
+.profile-contents {
+    border: 1px solid var(--primary_1_100);
+    padding: 33px 50px;
+    border-radius: 20px;
+}
+
+.profile-title {
+    font: var(--h1-bold-40px);
+    color: var(--accent_1_100);
+    margin-bottom: 33px;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 33px;
+}
+
+.profile-picture {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+.profile-info .profile-name {
+    font: var(--h3-semibold-24px);
+    color: var(--accent_1_100);
+}
+
+.profile-info .profile-email {
+    font: var(--body-regular-16px);
+    color: var(--primary_1_100);
+}
+
+.edit-button,
+.save-button {
+    background-color: var(--primary_1_100);
+    color: white;
+    font: var(--button-semibold-18px);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.edit-button:hover,
+.save-button:hover {
+    background-color: var(--accent_1_100);
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 34px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font: var(--body-regular-16px);
+    color: var(--accent_1_100);
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid var(--primary_1_100); /* Màu border theo yêu cầu */
+    border-radius: 50px;
+    font: var(--body-regular-16px);
+    color: var(--primary_1_100);
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: none;
+}

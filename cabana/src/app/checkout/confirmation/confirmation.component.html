@@ -1,0 +1,64 @@
+<div class="confirmation-container">
+    <!-- Thông tin đơn hàng -->
+    <div class="order-information">
+        <h2>Information</h2>
+        <div class="info-section">
+            <p class="delivery-date">Deliver Tomorrow, Dec 10th, 8am-10am</p>
+        </div>
+
+        <!-- Thông tin giao hàng -->
+        <div class="info-box">
+            <h3>Delivery Info ✅</h3>
+            <p><strong>Deliver to:</strong></p>
+            <p>Huzaefa Bagwala</p>
+            <p>2118 Thornridge Cir, Syracuse, Connecticut 35624</p>
+        </div>
+
+        <!-- Dịch vụ vận chuyển -->
+        <div class="info-box">
+            <h3>Shipment Service ✅</h3>
+            <p><strong>Unit:</strong> DHL Express</p>
+        </div>
+
+        <!-- Phương thức thanh toán -->
+        <div class="info-box">
+            <h3>Payment Method ✅</h3>
+            <p><strong>Paid by:</strong> Mastercard **** 3434</p>
+        </div>
+    </div>
+
+    <!-- Giỏ hàng -->
+    <div class="cart-container">
+        <h2>Cart</h2>
+        <p class="cart-quantity">Quantity: {{ order.length }} items</p>
+
+        <div class="cart-items">
+            <div class="cart-item" *ngFor="let item of order">
+                <img src="{{ item.image }}" alt="{{ item.name }}">
+                <div class="product-details">
+                    <h5>{{ item.name }}</h5>
+                    <p><strong>Color:</strong> Gunnaerd beige</p>
+                    <p><strong>Quantity:</strong> {{ item.quantity }} items</p>
+                    <p class="price">{{ item.price | number:'1.0-0' }} VND</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="order-summary" *ngIf="order">
+    <h4>Order Summary</h4>
+    <p>Delivery fee: <span>0 VND</span></p>
+    <p>VAT: <span>0 VND</span></p>
+    <p>Item(s): <span>{{ order.totalPrice |number:'1.0-0'  }}</span></p>
+    <p>Voucher: <span>0 VND</span></p>
+    <hr>
+    <p class="terms">
+        By placing this order, you are agreeing to our 
+        <a routerLink="/policy">Terms and Conditions.</a>
+    </p>
+    <p class="total"><b>Total: {{ order.totalPrice | number:'1.0-0'  }}</b></p>
+        
+    <button class="pay-now"><a routerLink="/home">Pay Now</a></button>
+    <button class="pay-later"><a routerLink="/home">Pay Later</a></button>
+</div>

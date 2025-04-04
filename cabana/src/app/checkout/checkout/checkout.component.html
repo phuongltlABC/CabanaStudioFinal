@@ -1,66 +1,13 @@
-<div class="container checkout-page">
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-      <a href="#">My Cart</a> > <span>Checkout</span>
-    </nav>
-  
-    <!-- Step Indicator -->
-    <div class="checkout-steps">
-      <div class="step active">Cart</div>
-      <div class="step active">Customer Information</div>
-      <div class="step">Confirmation</div>
-    </div>
-  
-    <!-- Checkout Section -->
-    <div class="row">
-      <!-- Selected Items -->
-      <div class="col-md-8">
-        <h3>Cart</h3>
-        <p>Quantity: {{ cartItems.length }} items</p>
-  
-        <div class="cart-item" *ngFor="let item of cartItems">
-          <img [src]="item.imageUrl" alt="Product Image">
-          <div class="cart-details">
-            <h5>{{ item.name }}</h5>
-            <p>Color: <span>{{ item.color }}</span></p>
-            <div class="quantity">
-              <button (click)="updateQuantity(item.id, item.quantity - 1)">-</button>
-              <input type="number" [value]="item.quantity" (change)="updateQuantity(item.productId, item.quantity)" min="1">
-              <button (click)="updateQuantity(item.id, item.quantity + 1)">+</button>
-            </div>
-            <p class="price">{{ item.price | number }} vnd</p>
-            <a (click)="removeItem(item.id)" class="remove">Remove</a>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Order Summary -->
-      <div class="col-md-4">
-        <div class="order-summary">
-          <h4>Order Summary</h4>
-          <p>Delivery fee: -</p>
-          <p>VAT: -</p>
-          <p>Item(s): {{ totalPrice | number }} vnd</p>
-          <div class="voucher">
-            <span>Voucher</span> <a href="#">+ Add voucher</a>
-          </div>
-          <h3>Total (temp): {{ totalTemp | number }} vnd</h3>
-          <button class="btn btn-primary w-100" (click)="proceedToOrder()">Proceed To Order</button>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Related Products -->
-    <h3>Related Products</h3>
-    <div class="row related-products">
-      <div class="col-md-3" *ngFor="let product of relatedProducts">
-        <div class="product-card">
-          <span class="discount">-13%</span>
-          <img [src]="product.imageUrl" alt="Product Image">
-          <p>{{ product.name }}</p>
-          <p><del>{{ product.oldPrice | number }} vnd</del> <strong>{{ product.price | number }} vnd</strong></p>
-        </div>
-      </div>
-    </div>
+<div class="container">
+  <div class="link">
+    <span>
+      <a routerLink="/my-cart">My cart</a>
+    </span> > 
+    <span>
+      <a routerLink="/check-out">Checkout</a>
+    </span>
   </div>
-  
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>
+</div>
