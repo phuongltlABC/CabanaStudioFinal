@@ -1,0 +1,33 @@
+<div class="cart-container">
+    <!-- Danh sách sản phẩm -->
+    <div class="cart-items">
+      <div class="cart-item" *ngFor="let item of cartItems">
+        <img src="assets/image/product/rectangular-corduroy-folding-storage-ottoman-1.jpg" alt="" srcset="">
+        <div class="product-details">
+          <h5>{{ item.name }}</h5>
+          <p>Brand: {{ item.brand }}</p>
+          <p>{{ item.price | number:'1.0-0'}} VND </p>
+          <div class="quantity-control">
+            <button (click)="updateQuantity(item, -1)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="updateQuantity(item, 1)">+</button>
+          </div>
+        </div>
+        <button (click)="removeItem(item.productId)" class="remove-btn">Remove</button>
+      </div>
+    </div>
+  
+    <!-- Order Summary -->
+    <div class="order-summary">
+      <h4>Order Summary</h4>
+      <p>Delivery fee: None</p>
+      <p>VAT: None VAT</p>
+      <p>Item(s): {{ totalTemp | number:'1.0-0' }} VND</p>
+      <p>Voucher: No voucher added</p>
+    <br>
+    <hr>
+    <p><b>Total: {{ totalTemp | number:'1.0-0' }} VND</b></p>
+      <button (click)="createOrder()"><a routerLink="/check-out/custInfo">Proceed To Order </a></button>
+    </div>
+  </div>
+  

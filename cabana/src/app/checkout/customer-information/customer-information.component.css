@@ -1,0 +1,78 @@
+.customer-info-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    height: auto;
+    padding: 20px;
+    background: var(--primary_2_100);
+}
+
+.info-section {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info-box {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.check-icon {
+    color: green;
+    font-size: 18px;
+}
+
+.info-content p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.order-summary {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h4 {
+    margin-bottom: 15px;
+}
+
+.order-summary p {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+
+.order-summary .total {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.order-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--primary_1_100);
+    color: var(--primary_2_100);
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.order-summary a{
+    text-decoration: none;
+    color: var(--primary_2_100);
+  }

@@ -1,0 +1,56 @@
+<div class="customer-info-container">
+    <div class="info-section">
+        <h4>Information</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Deliver Tomorrow, Dec 10th, 8am-10am</p>
+    </div>
+
+    <!-- Delivery Info -->
+    <div class="info-box">
+        <div class="info-header">
+            <h5>Delivery info</h5>
+            <span class="check-icon">✔</span>
+        </div>
+        <div class="info-content">
+            <p><strong>Deliver to</strong></p>
+            <p>Huzaefa Bagwala</p>
+            <p>2118 Thornridge Cir. Syracuse, Connecticut 35624</p>
+        </div>
+    </div>
+
+    <!-- Shipment Service -->
+    <div class="info-box">
+        <div class="info-header">
+            <h5>Shipment Service</h5>
+            <span class="check-icon">✔</span>
+        </div>
+        <div class="info-content">
+            <p><strong>Unit</strong></p>
+            <p>DHL Express</p>
+        </div>
+    </div>
+
+    <!-- Payment Method -->
+    <div class="info-box">
+        <div class="info-header">
+            <h5>Payment Method</h5>
+            <span class="check-icon">✔</span>
+        </div>
+        <div class="info-content">
+            <p><strong>Paid by</strong></p>
+            <p>Mastercard **** 3434</p>
+        </div>
+    </div>
+
+    <!-- Order Summary -->
+
+    <div class="order-summary" *ngIf="order">
+        <h4>Order Summary</h4>
+        <p>Delivery fee: <span>0 VND</span></p>
+        <p>VAT: <span>0 VND</span></p>
+        <p>Item(s): <span>{{ order.totalPrice |number:'1.0-0'  }}</span></p>
+        <p>Voucher: <span>0 VND</span></p>
+        <hr>
+        <p class="total"><b>Total: {{ order.totalPrice | number:'1.0-0'  }}</b></p>
+        <button class="order-btn" (click)="createOrder()"><a routerLink="/check-out/confirm">Proceed To Order</a></button>
+    </div>
+</div> 

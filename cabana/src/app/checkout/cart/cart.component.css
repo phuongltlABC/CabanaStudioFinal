@@ -1,0 +1,97 @@
+.cart-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    height: auto;
+    padding: 20px;
+    background: var(--primary_2_100);
+  }
+  
+  .cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .cart-item {
+    display: grid;
+    grid-template-columns: 80px 2fr 1fr; /* Hình ảnh | Thông tin sản phẩm | Xóa */
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .quantity-control button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: #1a2a4e;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .remove-btn {
+    color: red;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .order-summary {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-summary h4 {
+    margin-bottom: 15px;
+  }
+  
+  .order-summary button {
+    width: 100%;
+    padding: 10px;
+    background: var(--accent_1_100);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .order-summary button :hover{
+    background: var(--accent_1_100);
+  }
+
+  a{
+    text-decoration: none;
+    color: var(--primary_2_100);
+  }
+  @media (max-width: 768px) {
+    .cart-container {
+      grid-template-columns: 1fr; /* Chuyển về layout 1 cột trên màn hình nhỏ */
+    }
+  }
+  

@@ -1,3 +1,6 @@
 :root{
   background-color: var(--primary_2_100);
 }
+main{
+  background-color: var(--primary_2_100);
+}
