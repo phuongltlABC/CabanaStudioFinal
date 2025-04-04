@@ -1,67 +1,95 @@
-/* Vùng tổng quát */
 .orders-summary-page {
-    padding: 2rem;
-    background-color: #faf8f6; /* màu nền nhạt, tùy bạn */
-    min-height: 100vh;
-    font-family: 'Helvetica', sans-serif; /* hoặc font khác */
-  }
-  
-  .page-title {
-    font-size: 28px;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Thanh công cụ */
-  .toolbar {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .filter-group label {
-    margin-right: 0.5rem;
-  }
-  
-  .search-box input {
-    padding: 0.4rem 0.6rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* Bảng Orders */
-  .orders-table-container {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  }
-  
-  .orders-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .orders-table th,
-  .orders-table td {
-    text-align: left;
-    padding: 0.75rem;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .orders-table thead {
-    background-color: #f2f2f2;
-  }
-  
-  .view-btn {
-    background-color: #0066cc;
-    color: #fff;
-    border: none;
-    padding: 0.4rem 0.8rem;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .view-btn:hover {
-    background-color: #005bb5;
-  }
-  
+  padding: 1rem;
+  background-color: var(--primary_2_100);
+  font-family: 'Helvetica', sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.orders-summary-page h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.toolbar input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--primary_1_100);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.filter-button:hover {
+  background-color: var(--primary_1_100);
+  cursor: pointer;
+}
+
+.filter-button:active {
+  background-color: var(--primary_1_100);
+}
+.filter-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent_2_100);
+  border-radius: 4px;
+  background-color: var(--accent_2_100);
+  cursor: pointer;
+}
+
+.filter-button.active {
+  background-color: var(--primary_1_100);
+  transition: background-color 0.3s ease;
+}
+
+.item-count {
+  margin-bottom: 1rem;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table th, .orders-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--accent_2_100);
+}
+
+.item-details {
+  display: flex;
+  align-items: center;
+}
+
+.product-image {
+  width: 60px;
+  height: 60px;
+  background-color:var(--accent_2_100);
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.product-info {
+  font-size: 0.9rem;
+}
+
+.view-button {
+  background-color: transparent;
+  border: none;
+  color: var(--primary_1_100);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.view-button:hover {
+  background-color: var(--primary_1_100);
+  cursor: pointer;
+}
+
+.view-button:active {
+  background-color: var(--accent_2_100);
+}

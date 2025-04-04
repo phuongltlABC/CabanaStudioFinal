@@ -100,15 +100,7 @@ export class MyCartComponent implements OnInit {
     };
   
     this.cartService.setOrder(order);
-  
-    console.log("Navigating to checkout..."); // ✅ Kiểm tra xem hàm có chạy đến đây không
     
-    this.router.navigate(['/check-out']).then(success => {
-      if (success) {
-        console.log("Navigation success!"); // ✅ Nếu thành công, in ra console
-      } else {
-        console.error("Navigation failed!"); // ❌ Nếu thất bại, in lỗi
-      }
-    });
+    this.router.navigate(['/check-out'])
   }
 }  

@@ -1,0 +1,150 @@
+.confirmation-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    background: #fef6f2;
+}
+
+.order-information {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-section {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.delivery-date {
+    font-weight: bold;
+    color: #f75454;
+}
+
+.info-box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-quantity {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 80px 2fr;
+    align-items: center;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.order-summary {
+    background: var(--primary_2_100);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h4 {
+    margin-bottom: 15px;
+}
+
+.order-summary p {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.discount {
+    color: red;
+}
+
+.voucher-code {
+    background: var(--primary_2_100);
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.total {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.terms {
+    font-size: 12px;
+}
+
+.terms a {
+    color: #f75454;
+    text-decoration: none;
+}
+
+.pay-now {
+    width: 100%;
+    padding: 10px;
+    background: var(--accent_2_100);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.pay-later {
+    width: 100%;
+    padding: 10px;
+    background: var(--primary_2_100);
+    color: var(--accent_2_100);
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .confirmation-container {
+        grid-template-columns: 1fr;
+    }
+}
