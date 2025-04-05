@@ -47,7 +47,8 @@
     <button mat-button class="btn-navigation" [matMenuTriggerFor]="profile"><img src="assets/icon/human_icon.png" alt="Profile">
         <i class="material-icons">arrow_drop_down</i>
     </button>
-    <mat-menu #profile>
+    <mat-menu #profile class="mat-menu-profile">
+        <div class="mat-menu-profile">
         <button mat-menu-item><a routerLink="/signin">Sign Up</a></button>
         <button mat-menu-item><a routerLink="/signin">Sign in</a></button>
         <button mat-menu-item><a routerLink="/profile">User Profile</a></button>
@@ -57,6 +58,7 @@
         <button mat-menu-item><a routerLink="/my-order">Orders</a></button>
         <button mat-menu-item><a routerLink="/edit-profile">Settings</a></button>
         <button mat-menu-item><a routerLink="/home">Sign out</a></button>
+    </div>
     </mat-menu>
     <div class="menu-icon" (click)="toggleMenu()">☰</div>
 </div>
